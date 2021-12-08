@@ -87,6 +87,11 @@ const theme = {
       fontSize: ["14px", null, null, 2],
       letterSpacings: "-0.15px",
       padding: ["12px 20px", null, "15px 30px"],
+      fontFamily: "body",
+      cursor: "pointer",
+      lineHeight: 1.2,
+      transition: "all 0.25s",
+      fontWeight: 500,
       "&:hover": {
         color: "white",
         bg: "primary",
@@ -108,6 +113,20 @@ const theme = {
   styles: {
     root: {
       fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
+      srOnly: {
+        border: "0 !important",
+        clip: "rect(1px, 1px, 1px, 1px) !important",
+        clipPath: "inset(50%) !important",
+        height: "1px !important",
+        margin: "-1px !important",
+        overflow: "hidden !important",
+        padding: "0 !important",
+        position: "absolute !important",
+        width: "1px !important",
+        whiteSpace: "nowrap !important",
+      },
     },
   },
 };

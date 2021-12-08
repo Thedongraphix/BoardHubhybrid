@@ -7,7 +7,7 @@ export default function IndexPage() {
   return (
     <ThemeProvider theme={theme}>
       <StickyProvider>
-        <Layout>Hello</Layout>
+        <Layout></Layout>
       </StickyProvider>
     </ThemeProvider>
   );

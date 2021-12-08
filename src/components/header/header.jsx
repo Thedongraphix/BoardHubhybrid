@@ -1,10 +1,11 @@
-import { DrawerProvider } from "#components/drawer/drawer.provider";
+import { DrawerProvider } from "#contexts/drawer/drawer.provider";
 import { Link } from "react-scroll";
 import Logo from "#components/logo";
 import { Button, Container, Flex } from "@theme-ui/components";
 import LogoDark from "../../assets/logo.svg";
 import menuItems from "./header.data";
 import { keyframes } from "@emotion/react";
+import MobileDrawer from "./mobile-drawer";
 
 export default function Header({ className }) {
   return (
@@ -19,9 +20,10 @@ export default function Header({ className }) {
               </Link>
             ))}
           </Flex>
-          <Button className="donate_btn" variant="secondary" aria-label="Get Started">
+          <Button className="donate__btn" variant="secondary" aria-label="Get Started">
             Get Started
           </Button>
+          <MobileDrawer />
         </Container>
       </header>
     </DrawerProvider>
