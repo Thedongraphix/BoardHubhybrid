@@ -66,6 +66,31 @@ const theme = {
     },
     main: {},
   },
+  text: {
+    heading: {
+      fontFamily: "heading",
+      lineHeight: "heeding",
+      fontWeight: "heading",
+      fontSize: [4],
+      letterSpacing: "-.55px",
+      color: "heading",
+    },
+    heroPrimary: {
+      color: "heading",
+      fontSize: ["32px", "36px", "42px", "40px", "42px", "52px", "58px", "66px"],
+      lineHeight: [1.3, null, null, null, null, 1.2],
+      fontWeight: 700,
+      mb: [4, null, null, null, null, 5],
+    },
+    heroSecondary: {
+      fontSize: [2, null, "17px", null, null, "19px", 4],
+      lineHeight: [1.9, null, null, 2],
+      fontWeight: "body",
+      mb: 5,
+      px: [0, null, 5, 6, null, 8, 9],
+      color: "heading",
+    },
+  },
   links: {
     default: {
       cursor: "pointer",
@@ -95,6 +120,14 @@ const theme = {
       "&:hover": {
         color: "white",
         bg: "primary",
+      },
+    },
+    primary: {
+      variant: "buttons.defaultBtn",
+      color: "white",
+      bg: "primary",
+      "&:hover": {
+        boxShadow: "rgba(233, 76, 84, 0.57) 0px 9px 20px -5px",
       },
     },
     secondary: {
