@@ -2,6 +2,7 @@ import Layout from "#components/layout";
 import SEO from "#components/seo";
 import { StickyProvider } from "#contexts/app/app.provider";
 import Banner from "#sections/Banner";
+import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
 import theme from "#theme";
 import { ThemeProvider } from "theme-ui";
@@ -14,6 +15,7 @@ export default function IndexPage() {
           <SEO title="Startup Landing Page" />
           <Banner />
           <KeyFeature />
+          <Feature />
         </Layout>
       </StickyProvider>
     </ThemeProvider>
