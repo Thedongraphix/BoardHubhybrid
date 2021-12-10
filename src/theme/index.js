@@ -25,7 +25,15 @@ const theme = {
     // },
   },
 
-  breakpoints: ["480px", "640px", "768px", "1024px", "1220px", "1366px", "1620px"],
+  breakpoints: [
+    "480px",
+    "640px",
+    "768px",
+    "1024px",
+    "1220px",
+    "1366px",
+    "1620px",
+  ],
   fonts: {
     body: "'DM Sans', sans-serif",
     heading: "'DM Sans', sans-serif",
@@ -49,7 +57,16 @@ const theme = {
   // variants can use custom, user-defined names
   layout: {
     container: {
-      maxWidth: ["100%", null, null, "780px", "1020px", "1200px", null, "1310px"],
+      maxWidth: [
+        "100%",
+        null,
+        null,
+        "780px",
+        "1020px",
+        "1200px",
+        null,
+        "1310px",
+      ],
       px: [4, 6],
     },
     header: {
@@ -66,6 +83,39 @@ const theme = {
     },
     main: {},
   },
+  section: {
+    keyFeature: {
+      pt: [8, null, 9, null, null, 10],
+      pb: ["90px", null, 9, null, null, 10, null, "165px"],
+    },
+  },
+  sectionHeader: {
+    width: ["100%", null, "540px"],
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    mx: "auto",
+    mt: ["3px", null, -1],
+    marginBottom: ["50px", null, "60px", null, null, "65px", null, "80px"],
+    title: {
+      fontSize: ['24px', null, '28px', null, null, '32px', null, '36px'],
+      lineHeight: [1.3, null, null, 1.25],
+      textAlign: 'center',
+      fontWeight: "700",
+      letterSpacing: "-.5px",
+      color: "heading",
+    },
+    subTitle: {
+      fontSize: [0, "13px", null, "14px"],
+      color: "primary",
+      textAlign: "center",
+      letterSpacing: ["1.5px", null, "2px"],
+      textTransform: "uppercase",
+      fontWeight: "700",
+      mb: 2,
+      lineHeight: 1.5,
+    },
+  },
   text: {
     heading: {
       fontFamily: "heading",
@@ -77,7 +127,16 @@ const theme = {
     },
     heroPrimary: {
       color: "heading",
-      fontSize: ["32px", "36px", "42px", "40px", "42px", "52px", "58px", "66px"],
+      fontSize: [
+        "32px",
+        "36px",
+        "42px",
+        "40px",
+        "42px",
+        "52px",
+        "58px",
+        "66px",
+      ],
       lineHeight: [1.3, null, null, null, null, 1.2],
       fontWeight: 700,
       mb: [4, null, null, null, null, 5],
