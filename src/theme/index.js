@@ -91,6 +91,10 @@ const theme = {
     feature: {
       pb: [8, null, 9, null, null, 10, null, "170px"],
     },
+    coreFeature: {
+      pb: [8, null, 9, null, null, 10, null, "170px"],
+      overflow: "hidden",
+    },
     services: {
       pb: [8, null, 9, null, null, 10, null, "170px"],
     },

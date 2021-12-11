@@ -2,6 +2,7 @@ import Layout from "#components/layout";
 import SEO from "#components/seo";
 import { StickyProvider } from "#contexts/app/app.provider";
 import Banner from "#sections/Banner";
+import CoreFeature from "#sections/CoreFeature";
 import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
 import ServiceSection from "#sections/ServiceSection";
@@ -18,6 +19,7 @@ export default function IndexPage() {
           <KeyFeature />
           <ServiceSection />
           <Feature />
+          <CoreFeature />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

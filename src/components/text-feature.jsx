@@ -19,7 +19,11 @@ const TextFeature = ({
         </Heading>
       </Box>
 
-      {description && <Text as="p">{description}</Text>}
+      {description && (
+        <Text as="p" className="description" sx={styles.description}>
+          {description}
+        </Text>
+      )}
 
       {btnName && (
         <Link href={btnURL} variant="default">
@@ -61,5 +65,12 @@ const styles = {
       letterSpacing: "-.5px",
       mb: 5,
     },
+  },
+  description: {
+    fontSize: ["15px", 2, null, null, null, "17px", null, 3],
+    fontWeight: 400,
+    lineHeight: [1.85, null, null, 2, null, "2.2"],
+    color: "text_secondary",
+    mb: "30px",
   },
 };
