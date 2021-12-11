@@ -67,21 +67,18 @@ export default Feature;
 
 const styles = {
   grid: {
-    width: ["100%", "80%", "100%"],
-    mx: "auto",
+    pt: [0, null, null, null, null, null, 2],
+    px: [5, 6, 0, null, 7, 8, 7],
     gridGap: [
-      "35px 0",
+      "40px 0",
       null,
-      "40px 40px",
-      "50px 60px",
-      "30px",
-      "50px 40px",
-      "55px 90px",
-    ],
-    gridTemplateColumns: [
-      "repeat(1,1fr)",
+      "45px 30px",
       null,
-      "repeat(2,1fr)",
+      "60px 50px",
+      "70px 50px",
+      null,
+      "80px 90px",
     ],
+    gridTemplateColumns: ["repeat(1,1fr)", null, "repeat(2,1fr)"],
   },
 };

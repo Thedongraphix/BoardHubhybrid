@@ -4,6 +4,7 @@ import { StickyProvider } from "#contexts/app/app.provider";
 import Banner from "#sections/Banner";
 import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
+import ServiceSection from "#sections/ServiceSection";
 import theme from "#theme";
 import { ThemeProvider } from "theme-ui";
 
@@ -15,6 +16,7 @@ export default function IndexPage() {
           <SEO title="Startup Landing Page" />
           <Banner />
           <KeyFeature />
+          <ServiceSection />
           <Feature />
         </Layout>
       </StickyProvider>

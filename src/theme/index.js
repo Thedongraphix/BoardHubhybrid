@@ -88,6 +88,12 @@ const theme = {
       pt: [8, null, 9, null, null, 10],
       pb: ["90px", null, 9, null, null, 10, null, "165px"],
     },
+    feature: {
+      pb: [8, null, 9, null, null, 10, null, "170px"],
+    },
+    services: {
+      pb: [8, null, 9, null, null, 10, null, "170px"],
+    },
   },
   sectionHeader: {
     width: ["100%", null, "540px"],
@@ -98,9 +104,9 @@ const theme = {
     mt: ["3px", null, -1],
     marginBottom: ["50px", null, "60px", null, null, "65px", null, "80px"],
     title: {
-      fontSize: ['24px', null, '28px', null, null, '32px', null, '36px'],
+      fontSize: ["24px", null, "28px", null, null, "32px", null, "36px"],
       lineHeight: [1.3, null, null, 1.25],
-      textAlign: 'center',
+      textAlign: "center",
       fontWeight: "700",
       letterSpacing: "-.5px",
       color: "heading",
