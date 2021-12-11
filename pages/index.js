@@ -6,6 +6,7 @@ import CoreFeature from "#sections/CoreFeature";
 import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
 import ServiceSection from "#sections/ServiceSection";
+import WorkFlow from "#sections/WorkFlow";
 import theme from "#theme";
 import { ThemeProvider } from "theme-ui";
 
@@ -20,6 +21,7 @@ export default function IndexPage() {
           <ServiceSection />
           <Feature />
           <CoreFeature />
+          <WorkFlow />
         </Layout>
       </StickyProvider>
     </ThemeProvider>
