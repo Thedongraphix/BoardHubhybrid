@@ -11,13 +11,16 @@ import {
 import { IoIosPlay } from "react-icons/io";
 import { keyframes } from "@emotion/react";
 import TextFeature from "#components/text-feature";
-import ModalVideo from "react-modal-video";
+import dynamic from "next/dynamic";
+// import ModalVideo from "react-modal-video";
 
 import ServiceThumb from "../assets/service-thumb.png";
 import ShapePattern from "../assets/shape-pattern1.png";
 
 import Smart from "../assets/services/smart.svg";
 import Secure from "../assets/services/secure.svg";
+
+const ModalVideo = dynamic(() => import("react-modal-video"), {ssr: false})
 
 const data = {
   subTitle: "our services",
@@ -89,6 +92,7 @@ const ServiceSection = () => {
       </Container>
       <ModalVideo
         channel="youtube"
+				autoplay
         isOpen={videoOpen}
         videoId="ZNA9rmDsYVE"
         onClose={() => setVideoOpen(false)}
