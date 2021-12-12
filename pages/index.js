@@ -5,6 +5,7 @@ import Banner from "#sections/Banner";
 import CoreFeature from "#sections/CoreFeature";
 import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
+import Package from "#sections/Package";
 import ServiceSection from "#sections/ServiceSection";
 import WorkFlow from "#sections/WorkFlow";
 import theme from "#theme";
@@ -22,6 +23,7 @@ export default function IndexPage() {
           <Feature />
           <CoreFeature />
           <WorkFlow />
+          <Package />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

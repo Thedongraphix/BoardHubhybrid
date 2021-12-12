@@ -98,6 +98,10 @@ const theme = {
     services: {
       pb: [8, null, 9, null, null, 10, null, "170px"],
     },
+    pricing: {
+      pt: [8, null, 9, null, null, 10, null, "180px"],
+      pb: ["90px", null, 9, null, null, 10, null, "180px"],
+    },
   },
   sectionHeader: {
     width: ["100%", null, "540px"],
@@ -186,9 +190,8 @@ const theme = {
       lineHeight: 1.2,
       transition: "all 0.25s",
       fontWeight: 500,
-      "&:hover": {
-        color: "white",
-        bg: "primary",
+      "&:focus": {
+        outline: 0,
       },
     },
     primary: {
@@ -209,6 +212,16 @@ const theme = {
       "&:hover": {
         color: "white",
         bg: "primary",
+      },
+    },
+    textButton: {
+      variant: "buttons.defaultBtn",
+      backgroundColor: "transparent",
+      cursor: "pointer",
+      color: "white",
+      svg: {
+        fontSize: [4, 6],
+        mr: 2,
       },
     },
   },
