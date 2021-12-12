@@ -7,6 +7,7 @@ import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
 import Package from "#sections/Package";
 import ServiceSection from "#sections/ServiceSection";
+import TeamSection from "#sections/TeamSection";
 import WorkFlow from "#sections/WorkFlow";
 import theme from "#theme";
 import { ThemeProvider } from "theme-ui";
@@ -24,6 +25,7 @@ export default function IndexPage() {
           <CoreFeature />
           <WorkFlow />
           <Package />
+          <TeamSection />
         </Layout>
       </StickyProvider>
     </ThemeProvider>
