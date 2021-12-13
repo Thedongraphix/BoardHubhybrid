@@ -2,6 +2,7 @@ import Layout from "#components/layout";
 import SEO from "#components/seo";
 import { StickyProvider } from "#contexts/app/app.provider";
 import Banner from "#sections/Banner";
+import BlogSection from "#sections/BlogSection";
 import CoreFeature from "#sections/CoreFeature";
 import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
@@ -28,6 +29,7 @@ export default function IndexPage() {
           <Package />
           <TeamSection />
           <TestimonialCard />
+          <BlogSection />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

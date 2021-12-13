@@ -105,7 +105,10 @@ const theme = {
     testimonial: {
       pt: [8, null, 8, "70px", null, 8, null, "145px"],
       pb: ["90px", null, 9, null, null, 10, null, "190px"],
-      overflow: 'hidden'
+      overflow: "hidden",
+    },
+    news: {
+      pb: [8, null, 9, null, null, 10, null, "170px"],
     },
   },
   sectionHeader: {
@@ -178,6 +181,17 @@ const theme = {
     },
     logo: {
       display: "flex",
+    },
+    blog: {
+      display: "block",
+      px: 0,
+      cursor: "pointer",
+      color: "inherit",
+      textDecoration: "none",
+      transition: "color 0.25s",
+      "&:hover": {
+        color: "primary",
+      },
     },
   },
   // variants for buttons
