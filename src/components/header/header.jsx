@@ -66,7 +66,7 @@ const styles = {
       color: "#000000",
       boxShadow: "0 1px 2px rgba(0, 0, 0, 0.06)",
       py: 3,
-      "nav > a": {
+      "nev > a": {
         color: "text",
       },
     },
@@ -92,7 +92,7 @@ const styles = {
       "&:hover": {
         color: "primary",
       },
-      "&:active": {
+      "&.active": {
         color: "primary",
       },
     },

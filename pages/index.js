@@ -8,6 +8,7 @@ import Feature from "#sections/Feature";
 import KeyFeature from "#sections/KeyFeature";
 import Package from "#sections/Package";
 import ServiceSection from "#sections/ServiceSection";
+import Subscribe from "#sections/Subscribe";
 import TeamSection from "#sections/TeamSection";
 import TestimonialCard from "#sections/TestimonialCard";
 import WorkFlow from "#sections/WorkFlow";
@@ -30,6 +31,7 @@ export default function IndexPage() {
           <TeamSection />
           <TestimonialCard />
           <BlogSection />
+          <Subscribe />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

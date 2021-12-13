@@ -244,23 +244,39 @@ const theme = {
       },
     },
   },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: "bold",
+    },
+    input: {
+      borderRadius: 8,
+      borderColo: "border_color",
+      height: 60,
+      "&:focus": {
+        borderColor: "primary",
+        outline: "none",
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+      },
+    },
+  },
   styles: {
     root: {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      srOnly: {
-        border: "0 !important",
-        clip: "rect(1px, 1px, 1px, 1px) !important",
-        clipPath: "inset(50%) !important",
-        height: "1px !important",
-        margin: "-1px !important",
-        overflow: "hidden !important",
-        padding: "0 !important",
-        position: "absolute !important",
-        width: "1px !important",
-        whiteSpace: "nowrap !important",
-      },
+    },
+    srOnly: {
+      border: "0 !important",
+      clip: "rect(1px, 1px, 1px, 1px) !important",
+      clipPath: "inset(50%) !important",
+      height: "1px !important",
+      margin: "-1px !important",
+      overflow: "hidden !important",
+      padding: "0 !important",
+      position: "absolute !important",
+      width: "1px !important",
+      whiteSpace: "nowrap !important",
     },
   },
 };
