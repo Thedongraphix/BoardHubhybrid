@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Sticky from "react-stickynode";
+import Footer from "./footer/footer";
 import Header from "./header/header";
 
 const Layout = ({ children }) => {
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
         }}>
         {children}
       </main>
+      <Footer />
     </Fragment>
   );
 };
