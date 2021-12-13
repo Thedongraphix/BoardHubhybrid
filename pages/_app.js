@@ -10,6 +10,7 @@ import "typeface-dm-sans";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     ReactGA.initialize("UA-164554931-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
     Router.events.on("routeChangeComplete", () =>
       ReactGA.pageview(window.location.pathname + window.location.search)
     );
