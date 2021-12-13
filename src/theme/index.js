@@ -102,6 +102,11 @@ const theme = {
       pt: [8, null, 9, null, null, 10, null, "180px"],
       pb: ["90px", null, 9, null, null, 10, null, "180px"],
     },
+    testimonial: {
+      pt: [8, null, 8, "70px", null, 8, null, "145px"],
+      pb: ["90px", null, 9, null, null, 10, null, "190px"],
+      overflow: 'hidden'
+    },
   },
   sectionHeader: {
     width: ["100%", null, "540px"],
