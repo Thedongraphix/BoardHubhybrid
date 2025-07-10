@@ -6,15 +6,15 @@ import FeatureThumb from "../assets/core-feature.png";
 import ShapePattern from "../assets/shape-pattern2.png";
 
 const data = {
-  subTitle: "Board Intelligence",
-  title: "AI-Powered Insights for Strategic Board Decisions",
+  subTitle: "Decision Making & Actions",
+  title: "Digital Voting, Approvals & Intelligent Action Tracking",
   description:
-    "Access comprehensive dashboards with board performance analytics, voting results, and strategic insights. Our AI-driven platform provides key intelligence at a click, enabling boards to make informed decisions with complete visibility and transparency.",
-  btnName: "Explore Platform",
+    "Accelerate board decisions with secure digital voting, integrated eSignatures, and DocuSign compatibility. Track action items, follow-up tasks, and ensure governance continuity with AI-powered insights that keep your board aligned between sessions.",
+  btnName: "Explore Decisions",
   btnURL: "#",
 };
 
-const CoreFeature = () => {
+const DecisionMaking = () => {
   return (
     <section sx={{ variant: "section.coreFeature" }}>
       <Container sx={styles.containerBox}>
@@ -28,7 +28,7 @@ const CoreFeature = () => {
           />
         </Box>
         <Box sx={styles.thumbnail}>
-          <Image src={FeatureThumb.src} alt="Thumbnail" />
+          <Image src={FeatureThumb.src} alt="Decision Making & Voting Platform" />
           <Box sx={styles.shapeBox}>
             <Image src={ShapePattern.src} alt="Shape" />
           </Box>
@@ -38,7 +38,7 @@ const CoreFeature = () => {
   );
 };
 
-export default CoreFeature;
+export default DecisionMaking;
 
 const styles = {
   containerBox: {
@@ -77,4 +77,4 @@ const styles = {
     zIndex: -1,
     display: ["none", "inline-block", "none", null, "inline-block"],
   },
-};
+}; 

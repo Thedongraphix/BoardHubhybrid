@@ -11,40 +11,40 @@ const data = [
   {
     id: 1,
     imgSrc: Performance.src,
-    altText: "Fast Performance",
-    title: "Fast Performance",
-    text: "Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.",
+    altText: "Flexible Meeting Management",
+    title: "Flexible Meeting Management",
+    text: "Create meetings and agendas, prepare and share meeting packs, manage attendance, collaborate on committee resolutions and hold secure votes with integrated Zoom and Webex.",
   },
   {
     id: 2,
     imgSrc: Partnership.src,
-    altText: "Partnership deal",
-    title: "Partnership deal",
-    text: "We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.",
+    altText: "Paperless Operations",
+    title: "Paperless Operations",
+    text: "View, update and sign documents in real time on any device - phone, tablet, or desktop. Eliminate printing and enable sustainable board operations with digital-first workflows.",
   },
   {
     id: 3,
     imgSrc: Subscription.src,
-    altText: "Pro Subscription",
-    title: "Pro Subscription",
-    text: "Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.",
+    altText: "Complete Transparency",
+    title: "Complete Transparency",
+    text: "Board members have complete access to agendas, meeting minutes, approvals and archives anywhere, anytime on any device with full audit trails and version control.",
   },
   {
     id: 4,
     imgSrc: Support.src,
-    altText: "Customer Support",
-    title: "Customer Support",
-    text: "We believe it’s important for everyone to have access to software – especially when it comes to digital learning be navigated by keyboard and screen readers.",
+    altText: "Enhanced Collaboration",
+    title: "Enhanced Collaboration",
+    text: "Seamless communication and strategic planning with integrated video conferencing, real-time collaboration tools, and centralized board calendar management for all stakeholders.",
   },
 ];
 
 const Feature = () => {
   return (
-    <section sx={{ variant: "section.feature" }}>
+    <section id="feature" sx={{ variant: "section.feature" }}>
       <Container>
         <SectionHeader
-          slogan="Quality features"
-          title="Amazing useful features"
+          slogan="Core Features"
+          title="Comprehensive Board Management Platform"
         />
 
         <Grid sx={styles.grid}>

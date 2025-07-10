@@ -6,18 +6,24 @@ import FeatureThumb from "../assets/core-feature.png";
 import ShapePattern from "../assets/shape-pattern2.png";
 
 const data = {
-  subTitle: "Board Intelligence",
-  title: "AI-Powered Insights for Strategic Board Decisions",
+  subTitle: "Meeting Operations",
+  title: "Streamlined Agenda Building & Document Management",
   description:
-    "Access comprehensive dashboards with board performance analytics, voting results, and strategic insights. Our AI-driven platform provides key intelligence at a click, enabling boards to make informed decisions with complete visibility and transparency.",
-  btnName: "Explore Platform",
+    "Transform unstructured ideas into ready-to-use agendas with our intelligent agenda builder. Seamlessly manage documents, track attendance, and integrate with Microsoft 365, Zoom, and Teams for a complete meeting operations experience.",
+  btnName: "Explore Features",
   btnURL: "#",
 };
 
-const CoreFeature = () => {
+const MeetingOperations = () => {
   return (
     <section sx={{ variant: "section.coreFeature" }}>
       <Container sx={styles.containerBox}>
+        <Box sx={styles.thumbnail}>
+          <Image src={FeatureThumb.src} alt="Meeting Operations Dashboard" />
+          <Box sx={styles.shapeBox}>
+            <Image src={ShapePattern.src} alt="Shape" />
+          </Box>
+        </Box>
         <Box sx={styles.contentBox}>
           <TextFeature
             subTitle={data.subTitle}
@@ -27,18 +33,12 @@ const CoreFeature = () => {
             btnURL={data.btnURL}
           />
         </Box>
-        <Box sx={styles.thumbnail}>
-          <Image src={FeatureThumb.src} alt="Thumbnail" />
-          <Box sx={styles.shapeBox}>
-            <Image src={ShapePattern.src} alt="Shape" />
-          </Box>
-        </Box>
       </Container>
     </section>
   );
 };
 
-export default CoreFeature;
+export default MeetingOperations;
 
 const styles = {
   containerBox: {
@@ -47,6 +47,7 @@ const styles = {
     justifyContent: "space-between",
     flexWrap: ["wrap", null, null, "nowrap"],
     pb: [0, 7, 0, null, 7],
+    flexDirection: ["column", null, null, "row"], // Normal flow for mobile, row for desktop
   },
   contentBox: {
     flexShrink: 0,
@@ -55,6 +56,7 @@ const styles = {
     width: ["100%", "80%", null, 340, 400, 430, null, 485],
     pb: ["50px", "60px", null, 0],
     mx: ["auto", null, null, 0],
+    order: [1, null, null, 2], // On desktop, content comes second (right side)
     ".description": {
       pr: [0, null, 6, 7, 6],
     },
@@ -62,8 +64,9 @@ const styles = {
   thumbnail: {
     display: "inline-flex",
     position: "relative",
-    mr: "auto",
-    ml: ["auto", null, null, null, 7],
+    mr: ["auto", null, null, null, 7],
+    ml: ["auto", null, null, 0],
+    order: [2, null, null, 1], // On desktop, image comes first (left side)
     "> img": {
       position: "relative",
       zIndex: 1,
@@ -73,8 +76,8 @@ const styles = {
   shapeBox: {
     position: "absolute",
     bottom: -65,
-    right: -165,
+    left: -165, // Adjusted for left positioning
     zIndex: -1,
     display: ["none", "inline-block", "none", null, "inline-block"],
   },
-};
+}; 

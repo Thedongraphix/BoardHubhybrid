@@ -1,28 +1,38 @@
 const theme = {
-  // example colors with dark mode
+  // BoardHub Blue Color Palette
   colors: {
-    text: "#343D48",
-    text_secondary: "#02073E",
-    heading: "#0F2137",
-    heading_secondary: "#0F2137",
-    background: "#FFFFFF",
-    background_secondary: "#F9FBFD",
-    border_color: "#E5ECF4",
-    yellow: "#FFA740",
-    primary: "#EA3A60",
-    secondary: "#2563FF",
-    muted: "#E4E4E4",
-    accent: "#609",
-    // highlight a background color for highlighting text
-    // modes: {
-    //   dark: {
-    //     text: "#fff",
-    //     background: "#000",
-    //     primary: "#0cf",
-    //     secondary: "#09c",
-    //     muted: "#111",
-    //   },
-    // },
+    text: "#1E3A8A", // Deep blue for main text
+    text_secondary: "#1E40AF", // Medium blue for secondary text
+    heading: "#0F172A", // Very dark blue/slate for headings
+    heading_secondary: "#1E293B", // Dark blue-gray for secondary headings
+    background: "#FFFFFF", // Clean white background
+    background_secondary: "#F0F9FF", // Very light blue background
+    border_color: "#DBEAFE", // Light blue border
+    yellow: "#3B82F6", // Replace yellow with blue
+    primary: "#2563EB", // Main BoardHub blue
+    secondary: "#60A5FA", // Light blue secondary
+    muted: "#E2E8F0", // Light blue-gray muted
+    accent: "#1D4ED8", // Accent blue
+    // Light blue variants for various uses
+    blue_50: "#EFF6FF",
+    blue_100: "#DBEAFE", 
+    blue_200: "#BFDBFE",
+    blue_300: "#93C5FD",
+    blue_400: "#60A5FA",
+    blue_500: "#3B82F6",
+    blue_600: "#2563EB",
+    blue_700: "#1D4ED8",
+    blue_800: "#1E40AF",
+    blue_900: "#1E3A8A",
+    // Additional theme colors
+    white: "#FFFFFF",
+    dark: "#0F172A",
+    text_white: "#FFFFFF",
+    // Highlight colors using blue theme
+    success: "#10B981",
+    warning: "#F59E0B", 
+    error: "#EF4444",
+    info: "#3B82F6",
   },
 
   breakpoints: [
@@ -70,7 +80,7 @@ const theme = {
       px: [4, 6],
     },
     header: {
-      color: "#02073E",
+      color: "heading",
       fontWeight: "normal",
       py: 3,
       position: "absolute",

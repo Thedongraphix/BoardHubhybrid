@@ -2,7 +2,7 @@ import { DrawerProvider } from "#contexts/drawer/drawer.provider";
 import { Link } from "react-scroll";
 import Logo from "#components/logo";
 import { Button, Container, Flex } from "@theme-ui/components";
-import LogoDark from "../../assets/logo.svg";
+import LogoDark from "../../assets/boardhublogo.png";
 import menuItems from "./header.data";
 import { keyframes } from "@emotion/react";
 import MobileDrawer from "./mobile-drawer";
@@ -63,7 +63,7 @@ const styles = {
     "&.sticky": {
       position: "fixed",
       backgroundColor: "background",
-      color: "#000000",
+      color: "heading",
       boxShadow: "0 1px 2px rgba(0, 0, 0, 0.06)",
       py: 3,
       "nev > a": {
@@ -75,6 +75,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    minHeight: "80px",
   },
   nav: {
     mx: "auto",

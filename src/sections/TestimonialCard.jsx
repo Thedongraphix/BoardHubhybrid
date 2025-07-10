@@ -219,7 +219,7 @@ const styles = {
         mr: "1px",
       },
       ".star-o": {
-        color: "#ddd",
+        color: "muted",
         mr: "1px",
       },
     },

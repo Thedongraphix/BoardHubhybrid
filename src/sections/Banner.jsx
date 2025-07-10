@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Container, Heading, Text, Image } from "@theme-ui/components";
 import ShapeLeft from "../assets/shape-left.png";
 import ShapeRight from "../assets/shape-right.png";
-import BannerImg from "../assets/banner-thumb.png";
+import BannerImg from "../assets/dashboard.png";
 
 const Banner = () => {
   return (
@@ -10,16 +10,16 @@ const Banner = () => {
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
           <Heading as="h1" variant="heroPrimary">
-            Top Quality Digital Products To Explore
+            Secure Digital Platform for Effective Board Meetings
           </Heading>
           <Text as="p" variant="heroSecondary">
-            Get your blood tests delivered at let home collect sample from the victory of the managements that supplies best design system
-            guidelines ever.
+            BoardHub is an AI-powered board and committee intelligence platform that provides key insights at a click. 
+            Make strategic decisions with military-grade security, paperless operations, and complete transparency for board directors, executives, and company secretaries.
           </Text>
-          <Button variant="primary">Explore</Button>
+          <Button variant="primary">Request Demo</Button>
         </Box>
         <Box sx={styles.banner.imageBox}>
-          <Image src={BannerImg.src} alt="banner" />
+          <Image src={BannerImg.src} alt="BoardHub Dashboard - Secure Board Meeting Platform" />
         </Box>
       </Container>
     </section>
@@ -75,6 +75,8 @@ const styles = {
     imageBox: {
       display: "flex",
       justifyContent: "center",
+      borderRadius: "15px",
+      overflow: "hidden",
       textAlign: "center",
       display: "inline-flex",
       mb: [0, null, -6, null, null, "-40px", null, -3],

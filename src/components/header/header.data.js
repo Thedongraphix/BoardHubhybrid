@@ -6,15 +6,19 @@ const menuItems = [
   },
   {
     path: "feature",
-    label: "Feature",
+    label: "Features",
   },
   {
-    path: "pricing",
-    label: "Pricing",
+    path: "benefits",
+    label: "Who Benefits",
+  },
+  {
+    path: "workflow",
+    label: "How It Works",
   },
   {
     path: "testimonial",
-    label: "Testimonial",
+    label: "Testimonials",
   },
 ];
 

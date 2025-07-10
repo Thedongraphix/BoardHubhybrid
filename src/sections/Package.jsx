@@ -384,7 +384,7 @@ const styles = {
     padding: "7px",
     margin: "0 auto",
     borderRadius: "5px",
-    backgroundColor: "#F7F8FB",
+    backgroundColor: "background_secondary",
     button: {
       border: 0,
       padding: ["15px 20px", "15px 27px"],
@@ -399,9 +399,9 @@ const styles = {
       letterSpacing: "-0.24px",
       transition: "all 0.3s",
       "&.active": {
-        color: "#0f2137",
-        backgroundColor: "#ffffff",
-        boxShadow: "0 3px 4px rgba(38, 78, 118, 0.1)",
+        color: "heading",
+        backgroundColor: "white",
+        boxShadow: "0 3px 4px rgba(37, 99, 235, 0.1)",
       },
       "&:focus": {
         outline: 0,

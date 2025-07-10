@@ -23,22 +23,22 @@ import Secure from "../assets/services/secure.svg";
 const ModalVideo = dynamic(() => import("react-modal-video"), {ssr: false})
 
 const data = {
-  subTitle: "our services",
-  title: "Business Goals Achieved with Design",
+  subTitle: "our platform",
+  title: "Board Intelligence & Secure Meeting Management",
   features: [
     {
       id: 1,
       imgSrc: Smart.src,
-      altText: "Smart Features",
-      title: "Smart Features",
-      text: "Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.",
+      altText: "AI-Powered Insights",
+      title: "AI-Powered Insights",
+      text: "Access comprehensive board performance dashboards, voting results, and strategic insights with AI-driven analytics that help boards make informed decisions at a click.",
     },
     {
       id: 2,
       imgSrc: Secure.src,
-      altText: "Secure Contents",
-      title: "Secure Contents",
-      text: "Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.",
+      altText: "Military-Grade Security",
+      title: "Military-Grade Security",
+      text: "Security by design with military-grade encryption and advanced security controls to protect sensitive board data and ensure complete privacy during confidential discussions.",
     },
   ],
 };

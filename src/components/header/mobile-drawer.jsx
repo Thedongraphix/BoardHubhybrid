@@ -4,7 +4,6 @@ import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { FaDribbble, FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
 import React, { useCallback, useContext } from "react";
 import { DrawerContext } from "#contexts/drawer/drawer.context";
-import Scrollbars from "react-custom-scrollbars";
 import menuItems from "./header.data";
 import { Link } from "react-scroll";
 
@@ -41,7 +40,7 @@ const MobileDrawer = () => {
       width="320px"
       open={state.isOpen}
       toggleHandler={toggleHandler}
-      closeButton={<IoMdClose size="24px" color="#000000" />}
+      closeButton={<IoMdClose size="24px" color="heading" />}
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
       drawerHandler={
@@ -49,7 +48,7 @@ const MobileDrawer = () => {
           <IoMdMenu size="26px" />
         </Box>
       }>
-      <Scrollbars autoHide>
+      <Box sx={styles.scrollContainer}>
         <Box sx={styles.content}>
           <Box sx={styles.menu}>
             {menuItems.map(({ path, label }, i) => (
@@ -76,7 +75,7 @@ const MobileDrawer = () => {
             </Box>
           </Box>
         </Box>
-      </Scrollbars>
+      </Box>
     </Drawer>
   );
 };
@@ -109,6 +108,26 @@ const styles = {
     zIndex: "1",
     cursor: "pointer",
   },
+  scrollContainer: {
+    width: "100%",
+    height: "100%",
+    overflowY: "auto",
+    overflowX: "hidden",
+    // Custom scrollbar styling
+    "&::-webkit-scrollbar": {
+      width: "6px",
+    },
+    "&::-webkit-scrollbar-track": {
+      background: "transparent",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      background: "rgba(255, 255, 255, 0.3)",
+      borderRadius: "3px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      background: "rgba(255, 255, 255, 0.5)",
+    },
+  },
   content: {
     width: "100%",
     height: "100%",
@@ -128,7 +147,8 @@ const styles = {
       color: "text_white",
       py: "15px",
       cursor: "pointer",
-      borderBottom: "1px solid #e8e5e5",
+      borderBottom: "1px solid",
+      borderBottomColor: "border_color",
       transition: "all 0.25s",
       "&:hover": {
         color: "secondary",

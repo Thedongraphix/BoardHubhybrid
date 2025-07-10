@@ -10,33 +10,33 @@ import ArrowEven from "../assets/arrowEven.svg";
 const data = [
   {
     id: 1,
-    title: "Set disbursement Instructions",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    title: "Plan & Schedule Meetings",
+    text: "Create meetings and agendas with integrated calendar management. Set up secure meeting rooms with Zoom and Webex integration for seamless board collaboration.",
   },
   {
     id: 2,
-    title: "Assembly retrieves funds from your account",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    title: "Prepare & Distribute Materials",
+    text: "Upload and share meeting packs, documents, and supporting materials. Board members can access and review materials securely on any device before the meeting.",
   },
   {
     id: 3,
-    title: "Assembly initiates disbursement",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    title: "Conduct Secure Meetings",
+    text: "Hold productive meetings with real-time collaboration, attendance tracking, voting capabilities, and comprehensive minute-taking with military-grade security.",
   },
   {
     id: 4,
-    title: "Customer receives funds payment",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    title: "Archive & Follow-up",
+    text: "Automatically archive meeting minutes, decisions, and action items. Track progress and ensure accountability with transparent access to all stakeholders.",
   },
 ];
 
 const WorkFlow = () => {
   return (
-    <section sx={styles.workflow}>
+    <section id="workflow" sx={styles.workflow}>
       <Container>
         <SectionHeader
-          slogan="Whats the function"
-          title="Let's see how it works"
+          slogan="Meeting Workflow"
+          title="Streamlined Board Meeting Process"
           isWhite={true}
         />
         <Grid sx={styles.grid}>
@@ -132,7 +132,7 @@ const styles = {
     fontSize: [6, null, 7, null, null, "30px"],
     fontWeight: 700,
     justifyContent: "center",
-    color: "#234582",
+    color: "primary",
   },
   wrapper: {
     width: "100%",

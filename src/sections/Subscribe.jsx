@@ -10,22 +10,23 @@ import {
 import React from "react";
 
 const Subscribe = () => {
-  const subscribe = (e) => {
+  const requestDemo = (e) => {
     e.preventDefault();
-    // handle subscribe form
+    // handle demo request form
+    console.log("Demo request submitted");
   };
   return (
     <Container>
       <Box sx={styles.contentBox}>
         <Box sx={styles.contentBoxInner}>
           <Heading as="h2" sx={styles.title}>
-            Subscribe to our blog
+            Experience BoardHub Platform
           </Heading>
           <Text as="p" sx={styles.description}>
-            Subscribe to get more information and latest news about about
-            technical and case study of our company
+            Request a personalized demo to see how BoardHub can transform your board meetings with AI-powered insights, 
+            military-grade security, and seamless collaboration tools.
           </Text>
-          <form onSubmit={subscribe}>
+          <form onSubmit={requestDemo}>
             <Flex sx={styles.subscribeForm}>
               <label htmlFor="email" sx={{ variant: "styles.srOnly" }}>
                 Email Address
@@ -34,13 +35,13 @@ const Subscribe = () => {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="Enter your business email address"
               />
               <Button
                 type="submit"
                 className="subscribe__btn"
-                aria-label="Subscribe">
-                Subscribe
+                aria-label="Request Demo">
+                Request Demo
               </Button>
             </Flex>
           </form>

@@ -7,26 +7,26 @@ const data = {
     {
       id: 1,
       iconSrc: Chat.src,
-      altText: "Community",
-      title: "Join the Community",
+      altText: "Secure Communication",
+      title: "Secure Board Communication",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor.",
+        "Military-grade encrypted communication channels for confidential board discussions and committee meetings.",
     },
     {
       id: 2,
       iconSrc: Community.src,
-      altText: "Chat",
-      title: "Chat Communication",
+      altText: "Board Community",
+      title: "Board Management Hub",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor.",
+        "Centralized platform for board directors, executives, and company secretaries to collaborate effectively.",
     },
     {
       id: 3,
       iconSrc: Github.src,
-      altText: "Github",
-      title: "Github Access",
+      altText: "API Integration",
+      title: "Enterprise Integration",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor.",
+        "Seamless integration with existing enterprise systems and video conferencing platforms like Zoom and Webex.",
     },
   ],
   menuItem: [
@@ -36,15 +36,15 @@ const data = {
     },
     {
       path: "/",
-      label: "Adversite",
+      label: "Features",
     },
     {
       path: "/",
-      label: "Supports",
+      label: "Security",
     },
     {
       path: "/",
-      label: "Marketing",
+      label: "Support",
     },
     {
       path: "/",

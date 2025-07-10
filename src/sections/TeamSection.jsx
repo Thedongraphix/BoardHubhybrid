@@ -15,9 +15,9 @@ const data = [
   {
     id: 1,
     imgSrc: Member1.src,
-    altText: "Saimon Harmer",
-    title: "Saimon Harmer",
-    designation: "CEO and Founder",
+    altText: "Board Directors",
+    title: "Board Directors",
+    designation: "Strategic Decision Makers",
     socialProfile: [
       {
         id: 1,
@@ -42,9 +42,9 @@ const data = [
   {
     id: 2,
     imgSrc: Member2.src,
-    altText: "Aaron Nunez",
-    title: "Aaron Nunez",
-    designation: "Founder",
+    altText: "Executives",
+    title: "Executives",
+    designation: "Leadership Team",
     socialProfile: [
       {
         id: 1,
@@ -69,9 +69,9 @@ const data = [
   {
     id: 3,
     imgSrc: Member3.src,
-    altText: "Aaron Nunez",
-    title: "Aaron Nunez",
-    designation: "Web Designer",
+    altText: "Company Secretaries",
+    title: "Company Secretaries",
+    designation: "Meeting Organizers",
     socialProfile: [
       {
         id: 1,
@@ -96,9 +96,9 @@ const data = [
   {
     id: 4,
     imgSrc: Member4.src,
-    altText: "Lina Jutila",
-    title: "Lina Jutila",
-    designation: "Web Developer",
+    altText: "Committee Members",
+    title: "Committee Members",
+    designation: "Board Committees",
     socialProfile: [
       {
         id: 1,
@@ -123,9 +123,9 @@ const data = [
   {
     id: 5,
     imgSrc: Member5.src,
-    altText: "Saimon Harmer",
-    title: "Saimon Harmer",
-    designation: "CEO and Founder",
+    altText: "Administrators",
+    title: "Administrators",
+    designation: "Platform Managers",
     socialProfile: [
       {
         id: 1,
@@ -150,9 +150,9 @@ const data = [
   {
     id: 6,
     imgSrc: Member6.src,
-    altText: "Aaron Nunez",
-    title: "Aaron Nunez",
-    designation: "Web Designer",
+    altText: "Legal Advisors",
+    title: "Legal Advisors",
+    designation: "Compliance & Governance",
     socialProfile: [
       {
         id: 1,
@@ -178,11 +178,11 @@ const data = [
 
 const TeamSection = () => {
   return (
-    <section>
+    <section id="benefits">
       <Container>
         <SectionHeader
-          slogan="our team"
-          title="The most qualified and talented individuals"
+          slogan="Who Benefits"
+          title="Stakeholders Who Benefit from BoardHub"
         />
         <Grid sx={styles.grid}>
           {data.map((item) => (

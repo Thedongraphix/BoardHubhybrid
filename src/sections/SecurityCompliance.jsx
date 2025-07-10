@@ -6,15 +6,15 @@ import FeatureThumb from "../assets/core-feature.png";
 import ShapePattern from "../assets/shape-pattern2.png";
 
 const data = {
-  subTitle: "Board Intelligence",
-  title: "AI-Powered Insights for Strategic Board Decisions",
+  subTitle: "Security & Compliance",
+  title: "Military-Grade Security & Industry-Leading Compliance",
   description:
-    "Access comprehensive dashboards with board performance analytics, voting results, and strategic insights. Our AI-driven platform provides key intelligence at a click, enabling boards to make informed decisions with complete visibility and transparency.",
-  btnName: "Explore Platform",
+    "Experience peace of mind with SOC 2, ISO 27001, HIPAA, and GDPR compliance. Our robust security framework includes encrypted communications, stringent access controls, and regular security audits to ensure your confidential board data is always protected.",
+  btnName: "Security Details",
   btnURL: "#",
 };
 
-const CoreFeature = () => {
+const SecurityCompliance = () => {
   return (
     <section sx={{ variant: "section.coreFeature" }}>
       <Container sx={styles.containerBox}>
@@ -28,7 +28,7 @@ const CoreFeature = () => {
           />
         </Box>
         <Box sx={styles.thumbnail}>
-          <Image src={FeatureThumb.src} alt="Thumbnail" />
+          <Image src={FeatureThumb.src} alt="Security & Compliance Dashboard" />
           <Box sx={styles.shapeBox}>
             <Image src={ShapePattern.src} alt="Shape" />
           </Box>
@@ -38,7 +38,7 @@ const CoreFeature = () => {
   );
 };
 
-export default CoreFeature;
+export default SecurityCompliance;
 
 const styles = {
   containerBox: {
@@ -77,4 +77,4 @@ const styles = {
     zIndex: -1,
     display: ["none", "inline-block", "none", null, "inline-block"],
   },
-};
+}; 
