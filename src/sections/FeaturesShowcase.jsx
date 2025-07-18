@@ -1,196 +1,259 @@
-import React, { useState } from "react";
-import { Box, Container, Heading, Text, Button, Image, Grid } from "@theme-ui/components";
-import { IoSparkles, IoShield, IoPhonePortrait, IoDocument } from "react-icons/io5";
+'use client';
+import React, { useState, useEffect, useRef } from "react";
+import { Box, Container, Heading, Text, Button } from "@theme-ui/components";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoChevronForward, IoChevronBack } from "react-icons/io5";
 import CoreFeatureImg from "../assets/core-feature.png";
 import DashboardImg from "../assets/dashboard.png";
 
-const featuresData = {
-  ai: {
+const features = [
+  {
     id: "ai",
+    label: "01",
     title: "AI-Powered Intelligence",
-    subtitle: "Smart automation that board members actually want to use",
-    description: "Transform your board meetings with intelligent automation that handles the heavy lifting while you focus on strategic decisions.",
-    features: [
-      {
-        name: "AgendaAI",
-        description: "Automatically generate comprehensive agendas based on previous meetings and priorities",
-        benefit: "90% faster agenda creation"
-      },
-      {
-        name: "MinutesAI", 
-        description: "Transform recordings into accurate, structured meeting minutes with key decisions highlighted",
-        benefit: "Real-time transcription"
-      },
-      {
-        name: "InsightsAI",
-        description: "Surface patterns and strategic recommendations from your board's historical data",
-        benefit: "Data-driven decisions"
-      }
+    heading: "Transform Meetings with Smart Automation",
+    description: "Let AI handle the heavy lifting. Generate agendas, transcribe minutes, and surface insights automatically.",
+    highlights: [
+      "90% faster agenda creation",
+      "Real-time transcription",
+      "Strategic insights at a click"
     ],
-    image: DashboardImg.src
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&fit=crop", // Modern data dashboard
+    accent: "#3B82F6"
   },
-  security: {
+  {
     id: "security",
+    label: "02",
     title: "Enterprise Security",
-    subtitle: "Military-grade protection for your most sensitive discussions",
-    description: "Built for organizations that can't afford security breaches. Every feature designed with security-first principles.",
-    features: [
-      {
-        name: "End-to-End Encryption",
-        description: "Military-grade encryption protects all communications and documents",
-        benefit: "Bank-level security"
-      },
-      {
-        name: "SOC 2 Compliance",
-        description: "Independently verified security controls and compliance standards",
-        benefit: "Audit-ready compliance"
-      },
-      {
-        name: "Complete Audit Trail",
-        description: "Track every action, document view, and decision for complete accountability",
-        benefit: "Full transparency"
-      }
+    heading: "Military-Grade Protection You Can Trust",
+    description: "Bank-level encryption and compliance standards protect your most sensitive board discussions.",
+    highlights: [
+      "End-to-end encryption",
+      "SOC 2 & ISO certified",
+      "Complete audit trails"
     ],
-    image: CoreFeatureImg.src
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&q=80&fit=crop", // Cybersecurity concept
+    accent: "#10B981"
   },
-  mobile: {
+  {
     id: "mobile",
+    label: "03",
     title: "Mobile Excellence",
-    subtitle: "Full board functionality on any device, anywhere",
-    description: "Native iOS and Android apps that don't compromise on features or security. Work seamlessly across all devices.",
-    features: [
-      {
-        name: "Native Apps",
-        description: "Purpose-built iOS and Android apps with full feature parity",
-        benefit: "Consistent experience"
-      },
-      {
-        name: "Offline Access",
-        description: "Access documents, take notes, and vote even without internet connection",
-        benefit: "Work anywhere"
-      },
-      {
-        name: "Biometric Security",
-        description: "Touch ID, Face ID, and device-level security integration",
-        benefit: "Secure & convenient"
-      }
+    heading: "Board Access from Anywhere",
+    description: "Native iOS and Android apps deliver full functionality with offline access and biometric security.",
+    highlights: [
+      "Native mobile apps",
+      "Offline document access",
+      "Biometric authentication"
     ],
-    image: CoreFeatureImg.src
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80&fit=crop", // Professional with mobile device
+    accent: "#8B5CF6"
   },
-  paperless: {
+  {
     id: "paperless",
+    label: "04",
     title: "Paperless Operations",
-    subtitle: "Complete digital transformation without compromising governance",
-    description: "Eliminate printing, reduce preparation time, and enable sustainable board operations with digital-first workflows.",
-    features: [
-      {
-        name: "Digital Documents",
-        description: "View, annotate, and sign documents in real-time on any device",
-        benefit: "Zero printing needed"
-      },
-      {
-        name: "E-Signatures",
-        description: "Integrated DocuSign and native e-signature capabilities",
-        benefit: "Instant approvals"
-      },
-      {
-        name: "Version Control",
-        description: "Automatic versioning and change tracking for all board documents",
-        benefit: "Always current"
-      }
+    heading: "Sustainable Digital Transformation",
+    description: "Eliminate printing costs and environmental impact while improving document management efficiency.",
+    highlights: [
+      "Zero printing needed",
+      "Instant e-signatures",
+      "Version control built-in"
     ],
-    image: DashboardImg.src
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&q=80&fit=crop", // Modern office workspace
+    accent: "#F59E0B"
   }
-};
-
-const tabs = [
-  { id: "ai", label: "AI Intelligence", icon: <IoSparkles /> },
-  { id: "security", label: "Security", icon: <IoShield /> },
-  { id: "mobile", label: "Mobile", icon: <IoPhonePortrait /> },
-  { id: "paperless", label: "Paperless", icon: <IoDocument /> }
 ];
 
 const FeaturesShowcase = () => {
-  const [activeTab, setActiveTab] = useState("ai");
-  const currentFeature = featuresData[activeTab];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
+  const touchStartX = useRef(null);
+  
+  const currentFeature = features[activeIndex];
+  const autoPlayDelay = 6000; // 6 seconds per slide
+
+  // Auto-advance slides
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % features.length);
+      setProgress(0);
+    }, autoPlayDelay);
+
+    return () => clearInterval(intervalRef.current);
+  }, [activeIndex]);
+
+  // Progress bar animation
+  useEffect(() => {
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 100;
+        return prev + (100 / (autoPlayDelay / 100));
+      });
+    }, 100);
+
+    return () => clearInterval(progressInterval);
+  }, [activeIndex]);
+
+  const goToSlide = (index) => {
+    clearInterval(intervalRef.current);
+    setActiveIndex(index);
+    setProgress(0);
+  };
+
+  const goToPrevious = () => {
+    goToSlide(activeIndex === 0 ? features.length - 1 : activeIndex - 1);
+  };
+
+  const goToNext = () => {
+    goToSlide((activeIndex + 1) % features.length);
+  };
+
+  // Touch handling for mobile swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStartX.current) return;
+    
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrevious();
+      }
+    }
+    
+    touchStartX.current = null;
+  };
 
   return (
     <section sx={styles.section}>
       <Container>
-        <Box sx={styles.sectionHeader}>
-          <Heading sx={styles.mainTitle}>
-            Why Leading Organizations Choose BoardHub
+        {/* Header */}
+        <Box sx={styles.header}>
+          <Heading sx={styles.sectionTitle}>
+            Why Organizations Choose BoardHub
           </Heading>
-          <Text sx={styles.mainSubtitle}>
-            Discover the features that transform board meetings from time-consuming necessities into strategic advantages
+          <Text sx={styles.sectionSubtitle}>
+            Experience the future of board management
           </Text>
         </Box>
 
-        <Box sx={styles.showcaseCard}>
-          {/* Tab Navigation */}
-          <Box sx={styles.tabNavigation}>
-            {tabs.map((tab) => (
-              <Button
-                key={tab.id}
-                sx={{
-                  ...styles.tabButton,
-                  ...(activeTab === tab.id ? styles.activeTab : styles.inactiveTab),
-                }}
-                onClick={() => setActiveTab(tab.id)}
-              >
-                <Box sx={styles.tabIcon}>{tab.icon}</Box>
-                <Text sx={styles.tabLabel}>{tab.label}</Text>
-              </Button>
-            ))}
-          </Box>
-
-          {/* Content Area */}
-          <Box sx={styles.contentArea}>
-            <Grid sx={styles.contentGrid}>
-              {/* Left Content */}
-              <Box sx={styles.textContent}>
-                <Box sx={styles.badge}>
-                  {currentFeature.title}
+        {/* Slider Container */}
+        <Box 
+          sx={styles.sliderContainer}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <Box sx={styles.slideContent}>
+                {/* Left Content */}
+                <Box sx={styles.contentArea}>
+                  <Box sx={styles.featureLabel} style={{ color: currentFeature.accent }}>
+                    {currentFeature.label}
+                  </Box>
+                  
+                  <Heading sx={styles.featureTitle}>
+                    {currentFeature.title}
+                  </Heading>
+                  
+                  <Heading sx={styles.featureHeading}>
+                    {currentFeature.heading}
+                  </Heading>
+                  
+                  <Text sx={styles.featureDescription}>
+                    {currentFeature.description}
+                  </Text>
+                  
+                  <Box sx={styles.highlights}>
+                    {currentFeature.highlights.map((highlight, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 + 0.3 }}
+                        sx={styles.highlightItem}
+                      >
+                        <Box sx={styles.highlightDot} style={{ backgroundColor: currentFeature.accent }} />
+                        <Text>{highlight}</Text>
+                      </motion.div>
+                    ))}
+                  </Box>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    <Button sx={styles.ctaButton} style={{ backgroundColor: currentFeature.accent }}>
+                      Explore {currentFeature.title}
+                      <IoChevronForward sx={styles.buttonIcon} />
+                    </Button>
+                  </motion.div>
                 </Box>
-                <Heading sx={styles.contentTitle}>
-                  {currentFeature.subtitle}
-                </Heading>
-                <Text sx={styles.contentDescription}>
-                  {currentFeature.description}
-                </Text>
 
-                {/* Features List */}
-                <Box sx={styles.featuresList}>
-                  {currentFeature.features.map((feature, index) => (
-                    <Box key={index} sx={styles.featureItem}>
-                      <Box sx={styles.featureHeader}>
-                        <Heading sx={styles.featureName}>{feature.name}</Heading>
-                        <Box sx={styles.featureBenefit}>
-                          {feature.benefit}
-                        </Box>
-                      </Box>
-                      <Text sx={styles.featureDescription}>{feature.description}</Text>
-                    </Box>
-                  ))}
+                {/* Right Visual */}
+                <Box sx={styles.visualArea}>
+                  <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    sx={styles.imageWrapper}
+                  >
+                    <Box
+                      as="img"
+                      src={currentFeature.image}
+                      alt={currentFeature.title}
+                      sx={styles.featureImage}
+                    />
+                    <Box 
+                      sx={styles.imageOverlay} 
+                      style={{
+                        background: `linear-gradient(135deg, ${currentFeature.accent}20, transparent)`
+                      }}
+                    />
+                  </motion.div>
                 </Box>
-
-                <Button sx={styles.ctaButton}>
-                  Explore {currentFeature.title}
-                </Button>
               </Box>
+            </motion.div>
+          </AnimatePresence>
 
-              {/* Right Image */}
-              <Box sx={styles.imageContent}>
-                <Box sx={styles.imageContainer}>
-                  <Image 
-                    src={currentFeature.image} 
-                    alt={`${currentFeature.title} Interface`}
-                    sx={styles.featureImage}
-                  />
-                  <Box sx={styles.imageOverlay} />
+          {/* Navigation Controls */}
+          <Box sx={styles.navigation}>
+            <Box sx={styles.indicators}>
+              {features.map((_, index) => (
+                <Box
+                  key={index}
+                  sx={styles.indicator}
+                  onClick={() => goToSlide(index)}
+                  className={index === activeIndex ? 'active' : ''}
+                >
+                  <Box sx={styles.indicatorFill} />
+                  {index === activeIndex && (
+                    <Box 
+                      sx={styles.indicatorProgress}
+                      style={{ 
+                        width: `${progress}%`,
+                        backgroundColor: currentFeature.accent
+                      }}
+                    />
+                  )}
                 </Box>
-              </Box>
-            </Grid>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Container>
@@ -203,194 +266,206 @@ export default FeaturesShowcase;
 const styles = {
   section: {
     py: [6, 7, 8, 9],
-    bg: "#f8fafc",
+    bg: 'background',
+    position: 'relative',
+    overflow: 'hidden',
   },
-  sectionHeader: {
-    textAlign: "center",
+  header: {
+    textAlign: 'center',
     mb: [5, 6, 7],
-    maxWidth: "800px",
-    mx: "auto",
   },
-  mainTitle: {
-    fontSize: ["28px", "32px", "36px", "40px"],
+  sectionTitle: {
+    fontSize: [5, 6, 7],
     fontWeight: 700,
+    color: 'heading',
     lineHeight: 1.2,
     mb: 3,
-    color: "#1e293b",
+    letterSpacing: '-0.5px',
   },
-  mainSubtitle: {
-    fontSize: ["16px", "18px"],
-    lineHeight: 1.6,
-    color: "#64748b",
-    maxWidth: "600px",
-    mx: "auto",
+  sectionSubtitle: {
+    fontSize: [2, 3],
+    color: 'text_secondary',
+    maxWidth: '500px',
+    mx: 'auto',
   },
-  showcaseCard: {
-    bg: "#3b82f6",
-    borderRadius: "24px",
-    overflow: "hidden",
-    position: "relative",
-    boxShadow: "0 20px 60px rgba(59, 130, 246, 0.25)",
+  sliderContainer: {
+    position: 'relative',
+    borderRadius: '24px',
+    bg: '#2563EB',
+    boxShadow: '0 30px 80px rgba(37, 99, 235, 0.3)',
+    overflow: 'hidden',
   },
-  tabNavigation: {
-    display: "flex",
-    p: [2, 3],
-    gap: [1, 2],
-    flexWrap: ["wrap", "nowrap"],
-    justifyContent: "center",
-  },
-  tabButton: {
-    display: "flex",
-    alignItems: "center",
-    gap: 2,
-    px: [3, 4],
-    py: [2, 3],
-    border: "none",
-    borderRadius: "12px",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-    minWidth: "auto",
-    flex: ["1", "0 1 auto"],
-    justifyContent: ["center", "flex-start"],
-  },
-  activeTab: {
-    bg: "white",
-    color: "#3b82f6",
-    boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)",
-    transform: "translateY(-2px)",
-  },
-  inactiveTab: {
-    bg: "rgba(255, 255, 255, 0.1)",
-    color: "white",
-    "&:hover": {
-      bg: "rgba(255, 255, 255, 0.2)",
-    },
-  },
-  tabIcon: {
-    fontSize: ["18px", "20px"],
-    display: "flex",
-    alignItems: "center",
-  },
-  tabLabel: {
-    fontSize: ["14px", "16px"],
-    fontWeight: 600,
-    display: ["none", "block"],
+  slideContent: {
+    display: 'grid',
+    gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'],
+    gap: 0,
+    minHeight: ['auto', 'auto', '600px', '700px'],
   },
   contentArea: {
-    p: [4, 5, 6],
+    p: [5, 6, 7, 8],
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
-  contentGrid: {
-    display: "grid",
-    gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
-    gap: [4, 5, 6],
-    alignItems: "center",
-  },
-  textContent: {
-    order: [2, 2, 1],
-    color: "white",
-  },
-  badge: {
-    display: "inline-block",
-    px: 3,
-    py: 1,
-    borderRadius: "20px",
-    fontSize: "14px",
-    fontWeight: 600,
-    mb: 3,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    color: "white",
-  },
-  contentTitle: {
-    fontSize: ["24px", "28px", "32px"],
+  featureLabel: {
+    fontSize: [6, 7, 8],
     fontWeight: 700,
-    lineHeight: 1.2,
+    lineHeight: 1,
     mb: 3,
-    color: "white",
+    opacity: 0.3,
+    color: 'white',
   },
-  contentDescription: {
-    fontSize: ["16px", "18px"],
-    lineHeight: 1.6,
-    color: "rgba(255, 255, 255, 0.9)",
+  featureTitle: {
+    fontSize: [1, 2],
+    fontWeight: 600,
+    color: 'rgba(255, 255, 255, 0.9)',
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+    mb: 3,
+  },
+  featureHeading: {
+    fontSize: [4, 5, 6],
+    fontWeight: 700,
+    color: 'white',
+    lineHeight: 1.2,
     mb: 4,
+    letterSpacing: '-0.5px',
   },
-  featuresList: {
+  featureDescription: {
+    fontSize: [2, 3],
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 1.6,
     mb: 5,
   },
-  featureItem: {
-    mb: 4,
-    "&:last-child": {
+  highlights: {
+    mb: 5,
+  },
+  highlightItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 3,
+    mb: 3,
+    color: 'white',
+    '&:last-child': {
       mb: 0,
     },
   },
-  featureHeader: {
-    display: "flex",
-    alignItems: "center",
-    gap: 3,
-    mb: 2,
-    flexWrap: "wrap",
-  },
-  featureName: {
-    fontSize: ["16px", "18px"],
-    fontWeight: 600,
-    color: "white",
-  },
-  featureBenefit: {
-    px: 2,
-    py: 1,
-    borderRadius: "12px",
-    fontSize: "12px",
-    fontWeight: 600,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    color: "white",
-  },
-  featureDescription: {
-    fontSize: ["14px", "15px"],
-    lineHeight: 1.5,
-    color: "rgba(255, 255, 255, 0.8)",
+  highlightDot: {
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%',
+    flexShrink: 0,
+    opacity: 0.8,
   },
   ctaButton: {
-    bg: "white",
-    color: "#3b82f6",
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 2,
     px: 5,
     py: 3,
-    borderRadius: "12px",
+    color: 'white',
     fontWeight: 600,
-    fontSize: ["14px", "16px"],
-    border: "none",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-    "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: "0 8px 25px rgba(255, 255, 255, 0.3)",
+    fontSize: [2, 3],
+    borderRadius: '12px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'translateX(4px)',
+      gap: 3,
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
     },
   },
-  imageContent: {
-    order: [1, 1, 2],
-    display: "flex",
-    justifyContent: "center",
+  buttonIcon: {
+    fontSize: '20px',
   },
-  imageContainer: {
-    position: "relative",
-    borderRadius: "16px",
-    overflow: "hidden",
-    width: "100%",
-    maxWidth: "400px",
+  visualArea: {
+    position: 'relative',
+    display: ['none', 'none', 'block'],
+    overflow: 'hidden',
+    height: '100%',
+  },
+  imageWrapper: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden',
   },
   featureImage: {
-    width: "100%",
-    height: "auto",
-    display: "block",
-    position: "relative",
-    zIndex: 1,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    display: 'block',
   },
   imageOverlay: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    zIndex: 2,
-    opacity: 0.1,
-    background: "linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
+    pointerEvents: 'none',
+  },
+  navigation: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+    p: [4, 5],
+  },
+  navButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '48px',
+    height: '48px',
+    borderRadius: '50%',
+    border: '2px solid',
+    borderColor: 'border_color',
+    bg: 'transparent',
+    color: 'text',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    fontSize: '20px',
+    '&:hover': {
+      borderColor: 'primary',
+      color: 'primary',
+      transform: 'scale(1.05)',
+    },
+  },
+  indicators: {
+    display: 'flex',
+    gap: 2,
+    justifyContent: 'center',
+  },
+  indicator: {
+    position: 'relative',
+    width: ['40px', '60px'],
+    height: '4px',
+    borderRadius: '2px',
+    bg: 'rgba(255, 255, 255, 0.3)',
+    cursor: 'pointer',
+    overflow: 'hidden',
+    transition: 'all 0.3s ease',
+    '&.active': {
+      bg: 'rgba(255, 255, 255, 0.5)',
+    },
+    '&:hover': {
+      bg: 'rgba(255, 255, 255, 0.5)',
+    },
+  },
+  indicatorFill: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    bg: 'transparent',
+  },
+  indicatorProgress: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '100%',
+    transition: 'width 0.1s linear',
   },
 }; 

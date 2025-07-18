@@ -37,7 +37,7 @@ export default function IndexPage() {
           <BoardCommunication />
           <DecisionMaking />
           <WorkFlow />
-          <Package />
+        
           <TeamSection />
           <TestimonialCard />
           <BlogSection />

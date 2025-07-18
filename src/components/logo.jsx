@@ -10,19 +10,22 @@ const Logo = ({ src, ...rest }) => {
         variant: "link.logo",
         display: "flex",
         cursor: "pointer",
-        mr: 15,
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": {
+          transform: "scale(1.05)",
+        },
       }}
       {...rest}>
       <Image 
         src={src} 
         alt="BoardHub - Board Meeting Platform" 
         sx={{
-          // Responsive height: [mobile, tablet, desktop]
-          // Current: mobile=60px, tablet=70px, desktop=80px
-          height: ["60px", "70px", "80px"], 
-          width: "auto", // Maintains aspect ratio
-          maxHeight: "80px", // Maximum size constraint
-          objectFit: "contain", // Ensures proper scaling without distortion
+          height: ["50px", "60px", "65px"], 
+          width: "auto",
+          maxHeight: "65px",
+          objectFit: "contain",
+          filter: "drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       />
     </Link>

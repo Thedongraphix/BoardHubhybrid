@@ -113,7 +113,7 @@ const theme = {
       pb: ["90px", null, 9, null, null, 10, null, "180px"],
     },
     testimonial: {
-      pt: [8, null, 8, "70px", null, 8, null, "145px"],
+      pt: [4, null, 4, "20px", null, 4, null, "40px"], // Reduced top padding significantly
       pb: ["90px", null, 9, null, null, 10, null, "190px"],
       overflow: "hidden",
     },
