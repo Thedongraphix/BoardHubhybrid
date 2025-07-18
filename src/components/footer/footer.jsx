@@ -49,7 +49,7 @@ const Footer = () => {
             <Box sx={styles.brandColumn}>
               <Image src={FooterLogo} alt="BoardHub" sx={styles.logo} />
               <Text sx={styles.brandDescription}>
-                The world's most advanced board governance platform. Trusted by Fortune 500 companies to streamline operations and enhance decision-making.
+                The world&apos;s most advanced board governance platform. Trusted by Fortune 500 companies to streamline operations and enhance decision-making.
               </Text>
               <Box sx={styles.statsRow}>
                 <Box sx={styles.statItem}>
@@ -149,7 +149,7 @@ const Footer = () => {
                 </Link>
                 <Link href="#" sx={styles.footerLink}>
                   <Text>Careers</Text>
-                  <Text sx={styles.linkBadge}>We're hiring</Text>
+                  <Text sx={styles.linkBadge}>We&apos;re hiring</Text>
                 </Link>
                 <Link href="#" sx={styles.footerLink}>
                   <Text>Press & Media</Text>
