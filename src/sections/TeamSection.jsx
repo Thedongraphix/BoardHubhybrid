@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Box, Container, Heading, Text, Button } from "@theme-ui/components";
 import { useTransform, motion, useScroll } from 'framer-motion';
 import { ReactLenis } from 'lenis/react';
@@ -308,6 +308,21 @@ const StakeholderCard = ({
   totalCards,
 }) => {
   const container = useRef(null);
+  // SSR-SAFE RESPONSIVE VALUES - Handle window object safely for server-side rendering
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check if we're on mobile after component mounts (client-side only)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'start start'],
@@ -316,26 +331,34 @@ const StakeholderCard = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
   const rotatePattern = useTransform(scrollYProgress, [0, 1], [0, 5]);
   
-  // Card appears from below and stacks behind others
-  const cardEnterProgress = i / totalCards; // When this card should start appearing
-  const cardStackProgress = (i + 1) / totalCards; // When this card should be fully stacked
+  // CARD SEQUENTIAL ANIMATION - Each card appears individually as user scrolls
+  // Each card gets its own scroll segment for appearing and reading
+  const cardSegmentSize = 1 / totalCards; // Each card gets equal scroll space
+  const cardStartProgress = i * cardSegmentSize; // When this card starts appearing
+  const cardCenterProgress = cardStartProgress + cardSegmentSize * 0.3; // When card is fully visible
+  const cardEndProgress = cardStartProgress + cardSegmentSize * 0.8; // When card starts leaving
   
-  // Y position: starts from below (400px), moves to stack position
-  const stackOffset = -40; // Distance between stacked cards
-  const initialY = 400; // Start position (below viewport)
-  const finalY = stackOffset * (totalCards - i - 1); // Final stack position
+  // Y position: Each card starts below screen, moves to center, then moves up and away
+  const initialY = isMobile ? 400 : 500; // Start position (below viewport)
+  const centerY = 0; // Center position (visible)
+  const exitY = isMobile ? -300 : -400; // Exit position (above viewport)
   
-  const y = useTransform(progress, [cardEnterProgress, cardStackProgress], [initialY, finalY]);
+  const y = useTransform(progress, 
+    [cardStartProgress, cardCenterProgress, cardEndProgress], 
+    [initialY, centerY, exitY]
+  );
   
-  // Scale: starts at 1, reduces as it stacks behind others
-  const initialScale = 1;
-  const finalScale = Math.max(1 - 0.05 * (totalCards - i - 1), 0.85);
-  const scale = useTransform(progress, [cardEnterProgress, cardStackProgress], [initialScale, finalScale]);
+  // CARD SCALING & OPACITY - Individual card visibility
+  // Scale: starts small, becomes full size, then shrinks when leaving
+  const scale = useTransform(progress, 
+    [cardStartProgress, cardCenterProgress, cardEndProgress], 
+    [0.8, 1, 0.9]
+  );
   
-  // Opacity: starts at 0, becomes 1, then reduces as it stacks
+  // Opacity: fades in, fully visible, then fades out for next card
   const opacity = useTransform(progress, 
-    [cardEnterProgress - 0.1, cardEnterProgress, cardStackProgress], 
-    [0, 1, Math.max(1 - 0.1 * (totalCards - i - 1), 0.6)]
+    [cardStartProgress - 0.05, cardStartProgress, cardCenterProgress, cardEndProgress, cardEndProgress + 0.05], 
+    [0, 1, 1, 1, 0]
   );
   
   // Z-index: later cards appear on top initially, then stack behind
@@ -495,7 +518,8 @@ const styles = {
     variant: 'section.coreFeature',
     position: 'relative',
     overflow: 'hidden',
-    minHeight: '300vh',
+    // SECTION HEIGHT - Adjust for different screen sizes to allow proper reading time
+    minHeight: ['500vh', '400vh', '300vh'], // More height on mobile for slower scrolling
     mb: 0,
     "&::before": {
       position: "absolute",
@@ -554,32 +578,45 @@ const styles = {
   cardsContainer: {
     position: 'relative',
     zIndex: 1,
-    display: 'grid',
-    gridTemplateAreas: '"stack"',
-    minHeight: '80vh',
-    pb: [4, 6, 8],
+    // SEQUENTIAL CARD LAYOUT - Each card appears individually instead of stacking
+    display: 'block', // Changed from grid to block for sequential layout
+    // CARDS CONTAINER HEIGHT - Space for each card to appear individually
+    minHeight: ['400vh', '350vh', '300vh'], // More space for individual card appearances
+    pb: [6, 8, 10], // More bottom padding
   },
   cardContainer: {
-    gridArea: 'stack',
-    height: '100vh',
+    // INDIVIDUAL CARD CONTAINER - Each card appears in its own space
+    position: 'sticky',
+    // STICKY POSITIONING - Cards stick to viewport center as user scrolls
+    top: ['10vh', '15vh', '20vh'], // Centered positioning for better reading
+    // CARD DIMENSIONS - Responsive sizing for individual cards
+    height: ['auto', '70vh', '60vh'], // Auto height on mobile, constrained on desktop
+    minHeight: ['500px', '550px', '600px'], // Minimum heights to ensure content visibility
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'sticky',
-    top: '5vh', // Moved cards higher up
     zIndex: 2,
-    px: ['2rem', '3rem', '4rem'], // Add horizontal padding
+    // HORIZONTAL PADDING - More generous padding on mobile
+    px: ['1rem', '2rem', '3rem', '4rem'], // Increased mobile padding
+    py: ['2rem', '1rem', '0'], // Vertical padding on mobile
+    // CARD SPACING - Add margin between cards for individual appearance
+    mb: ['20vh', '15vh', '10vh'], // Space between cards as they appear
     '.stakeholder-card': {
       width: '100%',
-      maxWidth: '1200px', // Increased from 900px
-      height: ['auto', '580px'], // Increased from 480px
+      // CARD WIDTH - Better responsive sizing
+      maxWidth: ['100%', '900px', '1000px'], // Slightly smaller for better readability
+      // CARD HEIGHT - Auto height to fit content properly
+      height: 'auto', // Always auto height for content-driven sizing
+      minHeight: ['400px', '450px', '500px'], // Minimum heights for content
       transformOrigin: 'center center',
     }
   },
   card: {
-    borderRadius: '28px',
-    p: [7, 8, 9], // Increased padding
-    pb: [9, 10, 11], // Extra bottom padding to prevent text cutoff
+    // CARD BORDER RADIUS - Smaller radius on mobile for better fit
+    borderRadius: ['20px', '24px', '28px'],
+    // CARD PADDING - Better mobile spacing to prevent content cutoff
+    p: ['5', '6', '7', '8'], // Reduced mobile padding, increased on larger screens
+    pb: ['7', '8', '9', '10'], // Extra bottom padding to prevent text cutoff
     boxShadow: '0 25px 80px rgba(0, 0, 0, 0.18)',
     border: 'none',
     transition: 'all 0.4s ease',
@@ -588,7 +625,9 @@ const styles = {
     backdropFilter: 'blur(15px)',
     zIndex: 10,
     width: '100%',
-    height: '100%',
+    // CARD HEIGHT - Auto height on mobile to fit content properly
+    height: ['auto', 'auto', '100%'], // Auto height on mobile and tablet
+    minHeight: ['400px', '450px', '500px'], // Minimum heights for content
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -828,12 +867,13 @@ const styles = {
     flex: 1,
   },
   cardTitle: {
-    fontSize: [4, 5, 6],
+    // CARD TITLE - Better mobile font sizing for readability
+    fontSize: ['18px', '22px', '26px', '30px'], // More explicit mobile sizing
     fontWeight: 'bold',
     color: 'white',
-    lineHeight: 'heading',
-    mb: 2,
-    letterSpacing: '-0.5px',
+    lineHeight: [1.3, 1.2, 'heading'], // Better line height on mobile
+    mb: [2, 2, 3], // Consistent spacing
+    letterSpacing: ['-0.3px', '-0.4px', '-0.5px'], // Adjusted letter spacing
     position: 'relative',
     zIndex: 2,
     textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
@@ -853,13 +893,17 @@ const styles = {
     mt: 4, // Add top margin
   },
   description: {
-    fontSize: [3, 4],
-    lineHeight: 'body',
+    // DESCRIPTION TEXT - Better mobile readability
+    fontSize: ['14px', '16px', '18px'], // More explicit sizing
+    lineHeight: [1.6, 1.5, 'body'], // Better line height for mobile reading
     color: 'white',
-    mb: 6, // Increased margin
+    mb: [4, 5, 6], // Responsive margins
     fontWeight: 400,
-    letterSpacing: '-0.2px',
+    letterSpacing: ['-0.1px', '-0.15px', '-0.2px'], // Adjusted spacing
     textShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
+    // Better mobile text display
+    wordBreak: 'break-word',
+    hyphens: 'auto',
   },
   benefitsList: {
     mb: 8, // Increased margin
@@ -881,12 +925,14 @@ const styles = {
     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
   },
   benefitText: {
-    fontSize: [2, 3],
-    lineHeight: 'body',
+    // BENEFIT TEXT - Better mobile sizing and readability
+    fontSize: ['13px', '14px', '16px'], // Smaller mobile text for better fit
+    lineHeight: [1.5, 1.4, 'body'], // Better mobile line height
     color: 'white',
     fontWeight: 500,
     flex: 1,
     textShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
+    wordBreak: 'break-word', // Prevent text overflow
   },
   ctaButton: {
     color: 'white',

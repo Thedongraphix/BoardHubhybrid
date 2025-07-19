@@ -1,9 +1,7 @@
 import React from "react";
-import { Box, Container, Grid, Heading, Text, Button, Input, Flex, Link as ThemeLink, Image } from "@theme-ui/components";
+import { Box, Container, Grid, Heading, Text, Button, Input, Flex, Link as ThemeLink } from "@theme-ui/components";
 import { FaLinkedin, FaTwitter, FaGithub, FaEnvelope } from "react-icons/fa";
 import { IoArrowForward } from "react-icons/io5";
-import Logo from "../logo";
-import LogoDark from "../../assets/boardhublogo.png";
 
 const Footer = () => {
   return (
@@ -14,7 +12,9 @@ const Footer = () => {
           
           {/* Brand & Newsletter Section */}
           <Box sx={styles.brandSection}>
-            <Logo src={LogoDark.src} />
+            <Heading as="h3" sx={styles.brandTitle}>
+              BoardHub
+            </Heading>
             <Text sx={styles.brandDescription}>
               Empowering boards with AI-driven governance solutions for the modern enterprise.
             </Text>
@@ -114,17 +114,29 @@ export default Footer;
 
 const styles = {
   footer: {
-    // FOOTER BACKGROUND & SPACING - Adjust these values to change footer appearance
-    bg: "rgba(15, 23, 42, 0.97)", // Dark background with slight transparency
-    backdropFilter: "blur(20px)",
-    borderTop: "1px solid rgba(226, 232, 240, 0.1)",
+    // FOOTER BACKGROUND & SPACING - Using BoardHub blue color scheme
+    background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%)",
+    borderTop: "1px solid rgba(255, 255, 255, 0.1)",
     pt: ["60px", null, "80px"],
     pb: ["40px", null, "50px"],
     mt: ["80px", null, "120px"],
+    position: "relative",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: "rgba(37, 99, 235, 0.1)",
+      backdropFilter: "blur(10px)",
+    },
   },
   
   container: {
     maxWidth: "1440px",
+    position: "relative",
+    zIndex: 2,
   },
   
   footerGrid: {
@@ -141,11 +153,20 @@ const styles = {
     gap: 4,
   },
   
+  brandTitle: {
+    // BRAND TITLE - Large text replacing logo
+    color: "white",
+    fontSize: ["28px", "32px"],
+    fontWeight: "900",
+    fontFamily: "heading",
+    letterSpacing: "-0.02em",
+  },
+  
   brandDescription: {
-    color: "rgba(226, 232, 240, 0.8)",
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "16px",
     lineHeight: 1.6,
-    mt: 4,
+    mt: 3,
     maxWidth: "280px",
   },
   
@@ -162,7 +183,7 @@ const styles = {
   },
   
   newsletterDescription: {
-    color: "rgba(226, 232, 240, 0.7)",
+    color: "rgba(255, 255, 255, 0.7)",
     fontSize: "14px",
     lineHeight: 1.5,
     mb: 4,
@@ -175,26 +196,27 @@ const styles = {
   
   newsletterInput: {
     flex: 1,
-    bg: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(226, 232, 240, 0.2)",
+    bg: "rgba(255, 255, 255, 0.15)",
+    border: "1px solid rgba(255, 255, 255, 0.3)",
     borderRadius: "12px",
     color: "white",
     fontSize: "14px",
     px: 4,
     py: 3,
     "&::placeholder": {
-      color: "rgba(226, 232, 240, 0.5)",
+      color: "rgba(255, 255, 255, 0.6)",
     },
     "&:focus": {
       outline: "none",
-      borderColor: "#3b82f6",
-      boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.1)",
+      borderColor: "white",
+      boxShadow: "0 0 0 3px rgba(255, 255, 255, 0.2)",
+      bg: "rgba(255, 255, 255, 0.2)",
     },
   },
   
   newsletterButton: {
-    bg: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
-    color: "white",
+    bg: "rgba(255, 255, 255, 0.9)",
+    color: "#2563eb",
     border: "none",
     borderRadius: "12px",
     px: 4,
@@ -202,9 +224,11 @@ const styles = {
     cursor: "pointer",
     transition: "all 0.3s ease",
     fontSize: "16px",
+    fontWeight: "600",
     "&:hover": {
       transform: "translateY(-2px)",
-      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)",
+      boxShadow: "0 8px 25px rgba(255, 255, 255, 0.3)",
+      bg: "white",
     },
   },
   
@@ -228,18 +252,18 @@ const styles = {
   },
   
   link: {
-    color: "rgba(226, 232, 240, 0.8)",
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "14px",
     textDecoration: "none",
     transition: "all 0.3s ease",
     "&:hover": {
-      color: "#3b82f6",
+      color: "white",
       transform: "translateX(4px)",
     },
   },
   
   footerBottom: {
-    borderTop: "1px solid rgba(226, 232, 240, 0.1)",
+    borderTop: "1px solid rgba(255, 255, 255, 0.2)",
     pt: 5,
   },
   
@@ -258,17 +282,17 @@ const styles = {
   },
   
   legalLink: {
-    color: "rgba(226, 232, 240, 0.6)",
+    color: "rgba(255, 255, 255, 0.6)",
     fontSize: "13px",
     textDecoration: "none",
     transition: "color 0.3s ease",
     "&:hover": {
-      color: "#3b82f6",
+      color: "white",
     },
   },
   
   copyright: {
-    color: "rgba(226, 232, 240, 0.6)",
+    color: "rgba(255, 255, 255, 0.6)",
     fontSize: "13px",
     textAlign: ["center", null, "left"],
   },
@@ -280,14 +304,14 @@ const styles = {
   
   socialLink: {
     // SOCIAL MEDIA ICONS - Adjust sizes and hover effects here
-    color: "rgba(226, 232, 240, 0.6)",
+    color: "rgba(255, 255, 255, 0.6)",
     fontSize: "18px",
     transition: "all 0.3s ease",
     p: 2,
     borderRadius: "8px",
     "&:hover": {
-      color: "#3b82f6",
-      bg: "rgba(59, 130, 246, 0.1)",
+      color: "white",
+      bg: "rgba(255, 255, 255, 0.1)",
       transform: "translateY(-2px)",
     },
   },
