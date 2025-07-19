@@ -44,13 +44,18 @@ const Banner = () => {
         <Box sx={styles.banner.content}>
           <Box sx={styles.banner.textContent}>
             <Heading as="h1" sx={styles.banner.headline}>
-              Board Management for 
+              Board Management For
               <Box as="span" sx={styles.banner.highlightText}> Visionary Leaders</Box>
             </Heading>
             <Text sx={styles.banner.subheading}>
-              Transform board governance with enterprise-grade AI insights, military-level security, 
-              and seamless digital operations.
+              Simplify board governance with AI-driven agenda building, automated meeting minutes, and strategic insights that empower faster decision-making.
             </Text>
+            
+            <Box sx={styles.banner.aiTagline}>
+              <Text sx={styles.banner.aiTaglineText}>
+                Powered by <Box as="span" sx={styles.banner.aiEmphasis}>Artificial Intelligence</Box>
+              </Text>
+            </Box>
             
             <Box sx={styles.banner.buttonGroup}>
               <Button sx={styles.banner.primaryButton}>
@@ -200,17 +205,17 @@ const styles = {
     },
     
     headline: {
-      fontSize: ["34px", "44px", "54px", "62px"],
-      fontWeight: "900",
-      lineHeight: 1.05,
-      color: "#0a0f1c",
+      variant: "text.heroPrimary",
+      fontFamily: "heading", // Use theme heading font
+      fontWeight: "700",
+      lineHeight: [1.2, null, 1.15, 1.1],
+      color: "heading", // Use theme heading color
       mb: 6,
-      letterSpacing: "-0.04em",
-      fontFamily: "system-ui, -apple-system, sans-serif",
+      letterSpacing: "heading", // Use theme letter spacing
     },
     
     highlightText: {
-      color: "#3b82f6",
+      color: "primary", // Use theme primary color
       position: "relative",
       "&::after": {
         content: '""',
@@ -219,20 +224,43 @@ const styles = {
         left: 0,
         right: 0,
         height: "4px",
-        background: "#3b82f6",
+        background: "primary", // Use theme primary color
         borderRadius: "2px",
         opacity: 0.3,
       },
     },
     
+    aiTagline: {
+      display: "flex",
+      justifyContent: ["center", null, null, "flex-start"],
+      mb: 8,
+      mt: 2,
+    },
+    
+    aiTaglineText: {
+      fontSize: ["14px", "15px", "16px"], // Smaller font size
+      fontFamily: "body",
+      fontWeight: "700", // Bold text
+      color: "primary", // Blue color from theme
+      letterSpacing: "0.3px",
+      textTransform: "none", // Remove uppercase
+    },
+    
+    aiEmphasis: {
+      color: "primary", // Simple blue color, no gradient
+      fontWeight: "700", // Bold
+    },
+    
     subheading: {
-      fontSize: ["19px", "21px", "23px"],
-      lineHeight: 1.65,
-      color: "#475569",
-      mb: 12,
-      maxWidth: "90%",
-      mx: ["auto", null, null, "0"],
+      variant: "text.heroSecondary",
+      fontFamily: "body", // Use theme body font
+      fontSize: ["18px", "19px", "20px", "21px"],
+      lineHeight: "body", // Use theme body line height
+      color: "text", // Use theme text color
       fontWeight: "400",
+      mb: 12,
+      px: 0, // Override theme's horizontal padding to ensure proper left alignment
+      // Remove maxWidth and mx to inherit alignment from parent textContent container
     },
     
     features: {

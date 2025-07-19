@@ -331,33 +331,33 @@ const StakeholderCard = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
   const rotatePattern = useTransform(scrollYProgress, [0, 1], [0, 5]);
   
-  // CARD SEQUENTIAL ANIMATION - Each card appears individually as user scrolls
-  // Each card gets its own scroll segment for appearing and reading
+  // CARD SEQUENTIAL ANIMATION - Optimized for faster transitions
+  // Reduced scroll segments for quicker card transitions
   const cardSegmentSize = 1 / totalCards; // Each card gets equal scroll space
   const cardStartProgress = i * cardSegmentSize; // When this card starts appearing
-  const cardCenterProgress = cardStartProgress + cardSegmentSize * 0.3; // When card is fully visible
-  const cardEndProgress = cardStartProgress + cardSegmentSize * 0.8; // When card starts leaving
+  const cardCenterProgress = cardStartProgress + cardSegmentSize * 0.2; // Faster appearance
+  const cardEndProgress = cardStartProgress + cardSegmentSize * 0.7; // Earlier exit for next card
   
-  // Y position: Each card starts below screen, moves to center, then moves up and away
-  const initialY = isMobile ? 400 : 500; // Start position (below viewport)
+  // Y position: Smoother card transitions with reduced travel distance
+  const initialY = isMobile ? 200 : 250; // Reduced start position for smoother entry
   const centerY = 0; // Center position (visible)
-  const exitY = isMobile ? -300 : -400; // Exit position (above viewport)
+  const exitY = isMobile ? -150 : -200; // Reduced exit position for smoother exit
   
   const y = useTransform(progress, 
     [cardStartProgress, cardCenterProgress, cardEndProgress], 
     [initialY, centerY, exitY]
   );
   
-  // CARD SCALING & OPACITY - Individual card visibility
-  // Scale: starts small, becomes full size, then shrinks when leaving
+  // CARD SCALING & OPACITY - Smoother transitions with better easing
+  // Scale: smoother scaling with less dramatic changes
   const scale = useTransform(progress, 
     [cardStartProgress, cardCenterProgress, cardEndProgress], 
-    [0.8, 1, 0.9]
+    [0.85, 1, 0.95]
   );
   
-  // Opacity: fades in, fully visible, then fades out for next card
+  // Opacity: smoother fade transitions
   const opacity = useTransform(progress, 
-    [cardStartProgress - 0.05, cardStartProgress, cardCenterProgress, cardEndProgress, cardEndProgress + 0.05], 
+    [cardStartProgress - 0.03, cardStartProgress + 0.02, cardCenterProgress, cardEndProgress - 0.02, cardEndProgress + 0.03], 
     [0, 1, 1, 1, 0]
   );
   
@@ -518,9 +518,9 @@ const styles = {
     variant: 'section.coreFeature',
     position: 'relative',
     overflow: 'hidden',
-    // SECTION HEIGHT - Adjust for different screen sizes to allow proper reading time
-    minHeight: ['500vh', '400vh', '300vh'], // More height on mobile for slower scrolling
-    mb: 0,
+    // SECTION HEIGHT - Optimized for faster scrolling experience
+    minHeight: ['300vh', '250vh', '200vh'], // Reduced height for quicker navigation
+    mb: ['-10vh', '-8vh', '-5vh'], // Negative margin to reduce white space with next section
     "&::before": {
       position: "absolute",
       content: '""',
@@ -580,8 +580,8 @@ const styles = {
     zIndex: 1,
     // SEQUENTIAL CARD LAYOUT - Each card appears individually instead of stacking
     display: 'block', // Changed from grid to block for sequential layout
-    // CARDS CONTAINER HEIGHT - Space for each card to appear individually
-    minHeight: ['400vh', '350vh', '300vh'], // More space for individual card appearances
+    // CARDS CONTAINER HEIGHT - Optimized for faster card transitions
+    minHeight: ['250vh', '200vh', '150vh'], // Reduced space for quicker card appearances
     pb: [6, 8, 10], // More bottom padding
   },
   cardContainer: {
@@ -597,10 +597,10 @@ const styles = {
     justifyContent: 'center',
     zIndex: 2,
     // HORIZONTAL PADDING - More generous padding on mobile
-    px: ['1rem', '2rem', '3rem', '4rem'], // Increased mobile padding
+    px: ['0.5rem', '2rem', '3rem', '4rem'], // Reduced mobile padding for wider cards
     py: ['2rem', '1rem', '0'], // Vertical padding on mobile
-    // CARD SPACING - Add margin between cards for individual appearance
-    mb: ['20vh', '15vh', '10vh'], // Space between cards as they appear
+    // CARD SPACING - Reduced spacing for faster scrolling
+    mb: ['10vh', '8vh', '5vh'], // Reduced space between cards
     '.stakeholder-card': {
       width: '100%',
       // CARD WIDTH - Better responsive sizing
@@ -615,7 +615,7 @@ const styles = {
     // CARD BORDER RADIUS - Smaller radius on mobile for better fit
     borderRadius: ['20px', '24px', '28px'],
     // CARD PADDING - Better mobile spacing to prevent content cutoff
-    p: ['5', '6', '7', '8'], // Reduced mobile padding, increased on larger screens
+    p: ['4', '6', '7', '8'], // Optimized mobile padding for better width utilization
     pb: ['7', '8', '9', '10'], // Extra bottom padding to prevent text cutoff
     boxShadow: '0 25px 80px rgba(0, 0, 0, 0.18)',
     border: 'none',
