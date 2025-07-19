@@ -133,6 +133,7 @@ const styles = {
       position: "relative",
       zIndex: 1,
       height: [310, "auto"],
+      borderRadius: "15px",
     },
   },
   shapeBox: {

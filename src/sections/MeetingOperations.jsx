@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Container, Image } from "@theme-ui/components";
 import TextFeature from "#components/text-feature";
 
-import FeatureThumb from "../assets/core-feature.png";
+import FeatureThumb from "../assets/image-1.jpg";
 import ShapePattern from "../assets/shape-pattern2.png";
 
 const data = {
@@ -71,6 +71,7 @@ const styles = {
       position: "relative",
       zIndex: 1,
       height: [310, "auto"],
+      borderRadius: "15px",
     },
   },
   shapeBox: {

@@ -400,7 +400,7 @@ const styles = {
       transition: "all 0.3s",
       "&.active": {
         color: "heading",
-        backgroundColor: "white",
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
         boxShadow: "0 3px 4px rgba(37, 99, 235, 0.1)",
       },
       "&:focus": {

@@ -581,7 +581,7 @@ const styles = {
       width: '100%',
       height: 'auto',
       maxWidth: '550px',
-      borderRadius: '28px',
+      borderRadius: '15px',
       boxShadow:
         '0 50px 100px rgba(0, 0, 0, 0.12), 0 20px 40px rgba(0, 0, 0, 0.08)',
       border: '2px solid rgba(255, 255, 255, 0.8)',

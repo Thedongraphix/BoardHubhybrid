@@ -26,7 +26,8 @@ export default PostCard;
 
 const styles = {
   card: {
-    backgroundColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
+    backdropFilter: "blur(12px)",
     boxShadow: "0px 4px 10px rgba(38, 78, 118, 0.12)",
     borderRadius: "7px",
     m: "0 15px 40px",

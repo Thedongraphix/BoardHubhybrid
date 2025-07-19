@@ -82,7 +82,7 @@ const styles = {
   },
   subscribeForm: {
     mt: [6, null, null, 7],
-    backgroundColor: ["transparent", "white"],
+    backgroundColor: ["transparent", "rgba(255, 255, 255, 0.95)"],
     borderRadius: [0, 50],
     overflow: "hidden",
     p: [0, 1],
@@ -96,7 +96,7 @@ const styles = {
       color: "heading",
       py: 1,
       px: [4, null, 6],
-      backgroundColor: ["white", "transparent"],
+      backgroundColor: ["rgba(255, 255, 255, 0.95)", "transparent"],
       height: ["52px", null, "60px"],
       textAlign: ["center", "left"],
       "&:focus": {
