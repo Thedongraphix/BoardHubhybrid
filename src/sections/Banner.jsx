@@ -507,19 +507,36 @@ const styles = {
       display: "flex",
       flexDirection: "column",
       gap: 6,
-      alignItems: "center",
-      position: "relative",
+      alignItems: "flex-end",
+      position: "absolute",
+      top: "0",
+      right: "-5vw",
       order: [-1, null, null, 1],
+      width: "50vw",
+      height: "100%",
+      "@media screen and (max-width: 1023px)": {
+        position: "relative",
+        width: "100%",
+        right: "0",
+        alignItems: "center",
+      },
     },
     
     dashboardContainer: {
       position: "relative",
       display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+      justifyContent: "flex-end",
+      alignItems: "flex-start",
       transition: "transform 0.5s ease",
+      width: "100%",
+      marginTop: "80px",
       "&:hover": {
         transform: "scale(1.02) translateY(-8px)",
+      },
+      "@media screen and (max-width: 1023px)": {
+        justifyContent: "center",
+        marginTop: "0",
+        alignItems: "center",
       },
     },
     
@@ -538,7 +555,7 @@ const styles = {
     dashboardImage: {
       width: '100%',
       height: 'auto',
-      maxWidth: '900px',
+      maxWidth: '550px',
       borderRadius: '28px',
       boxShadow:
         '0 50px 100px rgba(0, 0, 0, 0.12), 0 20px 40px rgba(0, 0, 0, 0.08)',
@@ -547,16 +564,19 @@ const styles = {
       position: 'relative',
       zIndex: 1,
       '@media screen and (min-width: 640px)': {
-        maxWidth: '1000px',
+        maxWidth: '600px',
       },
       '@media screen and (min-width: 968px)': {
-        maxWidth: '1200px',
+        maxWidth: '700px',
       },
       '@media screen and (min-width: 1200px)': {
-        maxWidth: '1400px',
+        maxWidth: '800px',
       },
       '@media screen and (min-width: 1400px)': {
-        maxWidth: '1600px',
+        maxWidth: '650px',
+      },
+      '@media screen and (min-width: 1600px)': {
+        maxWidth: '400px',
       },
     },
     

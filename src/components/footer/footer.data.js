@@ -34,7 +34,7 @@ const data = {
       path: "/",
       label: "Home",
     },
-    {
+    {  
       path: "/",
       label: "Features",
     },
