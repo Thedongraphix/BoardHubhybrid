@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
 import Sticky from "react-stickynode";
-import Footer from "./footer/footer";
+
 import Header from "./header/header";
+import Footer from "./footer/footer";
 
 const Layout = ({ children }) => {
   const [isSticky, setIsSticky] = useState(false);
@@ -21,6 +22,9 @@ const Layout = ({ children }) => {
         id="content"
         sx={{
           variant: "layout.main",
+          background: "linear-gradient(135deg, #ffffff 0%, #fafbff 30%, #f8fafc 100%)",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
         }}>
         {children}
       </main>

@@ -45,10 +45,13 @@ const theme = {
     "1620px",
   ],
   fonts: {
-    body: "'DM Sans', sans-serif",
-    heading: "'DM Sans', sans-serif",
+    body: "'Outfit', system-ui, -apple-system, sans-serif",
+    heading: "'Space Grotesk', system-ui, -apple-system, sans-serif",
   },
-  fontSizes: [12, 15, 16, 18, 20, 22, 24, 28, 32, 36, 42, 48, 52, 64],
+  // Font sizes array - INDEX REFERENCE FOR EASY ADJUSTMENT:
+  // [0]=12px, [1]=15px, [2]=16px, [3]=18px, [4]=20px, [5]=22px, [6]=24px, 
+  // [7]=36px, [8]=42px, [9]=48px, [10]=54px, [11]=60px, [12]=68px, [13]=76px
+  fontSizes: [12, 15, 16, 18, 20, 22, 24, 36, 42, 48, 54, 60, 68, 76],
   fontWeights: {
     body: "normal",
     heading: 500,
@@ -130,7 +133,9 @@ const theme = {
     mt: ["3px", null, -1],
     marginBottom: ["50px", null, "60px", null, null, "65px", null, "80px"],
     title: {
-      fontSize: ["24px", null, "28px", null, null, "32px", null, "36px"],
+      // SECTION HEADER TITLES - Adjust these values to change section heading sizes
+      // Mobile: 36px, Tablet: 40px, Desktop: 44px, Large: 48px
+      fontSize: ["36px", null, "40px", null, null, "44px", null, "48px"],
       lineHeight: [1.3, null, null, 1.25],
       textAlign: "center",
       fontWeight: "700",
@@ -159,15 +164,17 @@ const theme = {
     },
     heroPrimary: {
       color: "heading",
+      // HERO/MAIN HEADINGS - Adjust these values to change hero section heading sizes
+      // Mobile: 42px, Small: 48px, Medium: 54px, Large: 60px, XL: 68px, XXL: 76px
       fontSize: [
-        "32px",
-        "36px",
         "42px",
-        "40px",
-        "42px",
+        "48px", 
+        "54px",
         "52px",
-        "58px",
-        "66px",
+        "54px",
+        "60px",
+        "68px",
+        "76px",
       ],
       lineHeight: [1.3, null, null, null, null, 1.2],
       fontWeight: 700,
@@ -275,6 +282,14 @@ const theme = {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
+    },
+    body: {
+      fontFamily: "body",
+      background: "linear-gradient(135deg, #ffffff 0%, #fafbff 30%, #f8fafc 100%)",
+      backgroundAttachment: "fixed",
+      minHeight: "100vh",
+      margin: 0,
+      padding: 0,
     },
     srOnly: {
       border: "0 !important",

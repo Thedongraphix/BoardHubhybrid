@@ -22,43 +22,43 @@ import Rating from "#components/rating";
 const data = [
   {
     id: 1,
-    title: "Modern look & trending design",
+    title: "Transformed Our Board Operations",
     description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
+      "BoardHub revolutionized how we conduct our quarterly board meetings. The AI-powered agenda creation and real-time collaboration features have reduced our prep time by 70% while improving decision quality.",
     avatar: Avatar1.src,
-    name: "Denny Hilguston",
-    designation: "@denny.hil",
-    review: 4,
+    name: "Sarah Chen",
+    designation: "Board Chair, TechFlow Inc.",
+    review: 5,
   },
   {
     id: 2,
-    title: "Design Quality & performance",
+    title: "Exceptional Security & Compliance",
     description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
+      "As a board member handling sensitive information, BoardHub's military-grade security gives me complete confidence. The audit trails and compliance features are exactly what we needed for governance oversight.",
     avatar: Avatar2.src,
-    name: "Denny Hilguston",
-    designation: "@denny.hil",
+    name: "Michael Rodriguez",
+    designation: "Independent Director, FinCorp",
     review: 5,
   },
   {
     id: 3,
-    title: "Layout and organized layers",
+    title: "Seamless Digital Experience",
     description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
+      "The transition from paper-based meetings to BoardHub was incredibly smooth. The mobile app allows me to review documents and vote on resolutions from anywhere, making board participation more efficient than ever.",
     avatar: Avatar3.src,
-    name: "Denny Hilguston",
-    designation: "@denny.hil",
+    name: "Dr. Jennifer Wang",
+    designation: "Board Member, HealthTech Solutions",
     review: 5,
   },
   {
     id: 4,
-    title: "Modern look & trending design",
+    title: "Outstanding Support & ROI",
     description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
+      "BoardHub delivered immediate value from day one. The onboarding was seamless, and the ongoing support is exceptional. We've seen a 300% improvement in meeting productivity and board member satisfaction.",
     avatar: Avatar4.src,
-    name: "Denny Hilguston",
-    designation: "@denny.hil",
-    review: 4,
+    name: "David Thompson",
+    designation: "Company Secretary, Global Ventures",
+    review: 5,
   },
 ];
 
@@ -111,7 +111,7 @@ const TestimonialCard = () => {
   return (
     <section id="testimonial" sx={{ variant: "section.testimonial" }}>
       <Container css={{ textAlign: "center" }}>
-        <SectionHeader slogan="Testimonial" title="Meet Client Satisfaction" />
+        <SectionHeader slogan="Client Success Stories" title="Trusted by Leading Board Members Worldwide" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...sliderParams}>

@@ -210,10 +210,7 @@ const styles = {
     },
     
     highlightText: {
-      background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
+      color: "#3b82f6",
       position: "relative",
       "&::after": {
         content: '""',
@@ -222,7 +219,7 @@ const styles = {
         left: 0,
         right: 0,
         height: "4px",
-        background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)",
+        background: "#3b82f6",
         borderRadius: "2px",
         opacity: 0.3,
       },

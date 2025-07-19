@@ -1,56 +1,45 @@
-import Chat from "../../assets/widget/chat.svg";
-import Community from "../../assets/widget/community.svg";
-import Github from "../../assets/widget/github.svg";
+// FOOTER CONTENT DATA - Edit these arrays to modify footer links and content
 
-const data = {
-  widgets: [
-    {
-      id: 1,
-      iconSrc: Chat.src,
-      altText: "Secure Communication",
-      title: "Secure Board Communication",
-      description:
-        "Military-grade encrypted communication channels for confidential board discussions and committee meetings.",
-    },
-    {
-      id: 2,
-      iconSrc: Community.src,
-      altText: "Board Community",
-      title: "Board Management Hub",
-      description:
-        "Centralized platform for board directors, executives, and company secretaries to collaborate effectively.",
-    },
-    {
-      id: 3,
-      iconSrc: Github.src,
-      altText: "API Integration",
-      title: "Enterprise Integration",
-      description:
-        "Seamless integration with existing enterprise systems and video conferencing platforms like Zoom and Webex.",
-    },
-  ],
-  menuItem: [
-    {
-      path: "/",
-      label: "Home",
-    },
-    {  
-      path: "/",
-      label: "Features",
-    },
-    {
-      path: "/",
-      label: "Security",
-    },
-    {
-      path: "/",
-      label: "Support",
-    },
-    {
-      path: "/",
-      label: "Contact",
-    },
-  ],
+export const platformLinks = [
+  { label: "AI Dashboard", href: "#features" },
+  { label: "Security & Compliance", href: "#security" },
+  { label: "Mobile Apps", href: "#mobile" },
+  { label: "Integrations", href: "#integrations" },
+  { label: "Meeting Analytics", href: "#analytics" },
+];
+
+export const solutionLinks = [
+  { label: "Board Directors", href: "#board-directors" },
+  { label: "Company Secretaries", href: "#secretaries" },
+  { label: "Enterprise", href: "#enterprise" },
+  { label: "Governance Tools", href: "#governance" },
+  { label: "Compliance Management", href: "#compliance" },
+];
+
+export const companyLinks = [
+  { label: "About Us", href: "#about" },
+  { label: "Careers", href: "#careers" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
+  { label: "Help Center", href: "#support" },
+];
+
+export const legalLinks = [
+  { label: "Privacy Policy", href: "#privacy" },
+  { label: "Terms of Service", href: "#terms" },
+  { label: "Security", href: "#security" },
+];
+
+export const socialLinks = [
+  { label: "LinkedIn", href: "https://linkedin.com/company/boardhub", icon: "linkedin" },
+  { label: "Twitter", href: "https://twitter.com/boardhub", icon: "twitter" },
+  { label: "GitHub", href: "https://github.com/boardhub", icon: "github" },
+  { label: "Contact", href: "mailto:contact@boardhub.com", icon: "email" },
+];
+
+export const footerContent = {
+  brandDescription: "Empowering boards with AI-driven governance solutions for the modern enterprise.",
+  newsletterTitle: "Stay Updated",
+  newsletterDescription: "Get the latest insights on board governance and platform updates.",
+  copyright: "© 2025 BoardHub. All rights reserved.",
 };
-
-export default data;

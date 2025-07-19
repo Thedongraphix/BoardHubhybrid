@@ -11,30 +11,30 @@ const data = [
   {
     id: 1,
     imgSrc: Performance.src,
-    altText: "Fast Performance",
-    title: "Fast Performance",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    altText: "AI-Powered Performance",
+    title: "AI-Powered Performance",
+    text: "Experience lightning-fast board operations with AI that automates agenda creation, document processing, and meeting insights in real-time.",
   },
   {
     id: 2,
     imgSrc: Partnership.src,
-    altText: "Partnership deal",
-    title: "Partnership deal",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    altText: "Strategic Collaboration",
+    title: "Strategic Collaboration",
+    text: "Foster seamless board member collaboration with secure document sharing, real-time voting, and integrated communication tools.",
   },
   {
     id: 3,
     imgSrc: Subscription.src,
-    altText: "Pro Subscription",
-    title: "Pro Subscription",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    altText: "Enterprise Solutions",
+    title: "Enterprise Solutions",
+    text: "Scale your board governance with flexible enterprise plans that grow with your organization's needs and compliance requirements.",
   },
   {
     id: 4,
     imgSrc: Support.src,
-    altText: "Customer Support",
-    title: "Customer Support",
-    text: "Get your blood tests delivered at home collect a sample from the your blood tests.",
+    altText: "24/7 Expert Support",
+    title: "24/7 Expert Support",
+    text: "Get dedicated support from our board governance experts who understand the unique challenges of executive leadership teams.",
   },
 ];
 
@@ -43,8 +43,8 @@ const KeyFeature = () => {
     <section sx={{ variant: "section.keyFeature" }} id="feature">
       <Container>
         <SectionHeader
-          slogan="Whats the function"
-          title="Meet the feature of product"
+          slogan="Key Capabilities"
+          title="Discover BoardHub's Powerful Features"
         />
         <Grid sx={styles.grid}>
           {data.map((item) => (

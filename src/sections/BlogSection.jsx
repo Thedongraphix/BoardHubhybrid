@@ -12,38 +12,38 @@ const data = [
   {
     id: 1,
     imgSrc: PostThumb1.src,
-    altText: "Marketing",
+    altText: "Board Governance",
     postLink: "#",
-    title: "Product Marketing: Monopoly Market",
-    authorName: "Cali Cartel",
-    date: "Oct 20, 2020",
+    title: "5 Essential AI Features Every Board Director Needs",
+    authorName: "Sarah Mitchell",
+    date: "Jan 15, 2025",
   },
   {
     id: 2,
     imgSrc: PostThumb2.src,
-    altText: "Creative",
+    altText: "Digital Transformation",
     postLink: "#",
-    title: "Product Marketing: Creative Market",
-    authorName: "James Carter",
-    date: "Oct 20, 2020",
+    title: "From Paper to Digital: Modernizing Board Operations",
+    authorName: "Michael Chen",
+    date: "Jan 10, 2025",
   },
   {
     id: 3,
     imgSrc: PostThumb3.src,
-    altText: "Startup",
+    altText: "Security & Compliance",
     postLink: "#",
-    title: "Product Marketing: Startup Product Sales",
-    authorName: "Aston Aagar",
-    date: "Oct 20, 2020",
+    title: "Military-Grade Security for Confidential Board Meetings",
+    authorName: "Elena Rodriguez",
+    date: "Jan 8, 2025",
   },
   {
     id: 4,
-    imgSrc: PostThumb2.src,
-    altText: "Creative",
+    imgSrc: PostThumb1.src,
+    altText: "Productivity",
     postLink: "#",
-    title: "Product Marketing: Creative Market",
-    authorName: "James Carter",
-    date: "Oct 20, 2020",
+    title: "How BoardHub Reduced Meeting Prep Time by 75%",
+    authorName: "David Thompson",
+    date: "Jan 5, 2025",
   },
 ];
 
@@ -75,8 +75,8 @@ const BlogSection = () => {
     <section sx={{ variant: "section.news" }}>
       <Container>
         <SectionHeader
-          title="Explore our products for your business solution"
-          slogan="our blog"
+          title="Insights & Best Practices for Modern Board Governance"
+          slogan="BoardHub Blog"
         />
         <Box sx={styles.carouselWrapper}>
           <Carousel

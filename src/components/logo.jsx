@@ -20,9 +20,9 @@ const Logo = ({ src, ...rest }) => {
         src={src} 
         alt="BoardHub - Board Meeting Platform" 
         sx={{
-          height: ["50px", "60px", "65px"], 
+          height: ["65px", "75px", "85px"], 
           width: "auto",
-          maxHeight: "65px",
+          maxHeight: "85px",
           objectFit: "contain",
           filter: "drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1))",
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",

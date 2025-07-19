@@ -20,7 +20,7 @@ const Subscribe = () => {
       <Box sx={styles.contentBox}>
         <Box sx={styles.contentBoxInner}>
           <Heading as="h2" sx={styles.title}>
-            Experience BoardHub Platform
+            Experience BoardHub Meetings Platform
           </Heading>
           <Text as="p" sx={styles.description}>
             Request a personalized demo to see how BoardHub can transform your board meetings with AI-powered insights, 
