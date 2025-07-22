@@ -45,8 +45,8 @@ const theme = {
     "1620px",
   ],
   fonts: {
-    body: "'Montserrat', system-ui, -apple-system, sans-serif",
-    heading: "'Montserrat', system-ui, -apple-system, sans-serif",
+    body: "'DM Sans', system-ui, -apple-system, sans-serif",
+    heading: "'DM Sans', system-ui, -apple-system, sans-serif",
   },
   // Font sizes array - INDEX REFERENCE FOR EASY ADJUSTMENT:
   // [0]=12px, [1]=15px, [2]=16px, [3]=18px, [4]=20px, [5]=22px, [6]=24px, 
