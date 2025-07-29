@@ -89,7 +89,13 @@ const MobileDrawer = () => {
           </Box>
 
           <Box sx={styles.menuFooter}>
-            <Button sx={styles.mobileButton}>
+            <Button 
+              as="a"
+              href="https://portal.boardhubmeetings.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={styles.mobileButton}
+            >
               <Text sx={styles.mobileButtonText}>Get Started</Text>
             </Button>
             
@@ -115,9 +121,16 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     flexShrink: "0",
-    width: "40px",
-    height: "40px",
+    width: "44px",
+    height: "44px",
+    borderRadius: "12px",
+    backgroundColor: "rgba(59, 130, 246, 0.1)",
     cursor: "pointer",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&:hover": {
+      backgroundColor: "rgba(59, 130, 246, 0.2)",
+      transform: "scale(1.05)",
+    },
     "@media screen and (min-width: 1024px)": {
       display: "none",
     },
@@ -134,8 +147,8 @@ const styles = {
   
   hamburgerLine: {
     width: "100%",
-    height: "2px",
-    backgroundColor: "#1a202c",
+    height: "3px",
+    backgroundColor: "#3b82f6",
     borderRadius: "2px",
     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   },
@@ -143,7 +156,7 @@ const styles = {
   drawer: {
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(255, 255, 255, 0.98)",
+    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 251, 255, 0.98) 30%, rgba(248, 250, 252, 0.98) 100%)",
     backdropFilter: "blur(20px)",
     WebkitBackdropFilter: "blur(20px)",
   },

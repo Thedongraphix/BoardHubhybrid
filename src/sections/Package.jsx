@@ -7,224 +7,234 @@ import PriceCard from "#components/price-card";
 import ButtonGroup from "#components/button-group";
 import { keyframes } from "@emotion/react";
 
-const packages = {
-  monthly: [
-    {
-      id: 1,
-      name: "Free Plan",
-      description: "For Small teams or office",
-      buttonText: "Start free trail",
-      priceWithUnit: "$0",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCloseCircle />,
-          text: "eCommerce Store ",
-          isAvailable: true,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Business king",
-      description: "For Enterprise business",
-      priceWithUnit: "$15",
-      buttonText: "Create account",
-      anotherOption: "Or Start 14 Days trail",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store ",
-          isAvailable: true,
-        },
-      ],
-    },
-    {
-      id: 3,
-      header: "Suggested",
-      headerIcon: <IoIosCheckmarkCircle />,
-      name: "Pro Master",
-      description: "For pro level developers",
-      priceWithUnit: "$24",
-      buttonText: "Create account",
-      anotherOption: "Or Start 14 Days trail",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store ",
-          isAvailable: true,
-        },
-      ],
-    },
-  ],
-  annual: [
-    {
-      id: 1,
-      name: "Free Plan",
-      description: "For Small teams or office",
-      buttonText: "Start free trail",
-      priceWithUnit: "$0",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCloseCircle />,
-          text: "eCommerce Store ",
-          isAvailable: true,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Business king",
-      description: "For Enterprise business",
-      priceWithUnit: "$25",
-      buttonText: "Create account",
-      anotherOption: "Or Start 10 Days trail",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder ",
-          isAvailable: true,
-        },
-      ],
-    },
-    {
-      id: 3,
-      header: "Suggested",
-      headerIcon: <IoIosCheckmarkCircle />,
-      name: "Pro Master",
-      description: "For pro level developers",
-      priceWithUnit: "$39",
-      buttonText: "Create account",
-      anotherOption: "Or Start 10 Days trail",
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder ",
-          isAvailable: true,
-        },
-      ],
-    },
-  ],
+const rolePackages = {
+  "board-members": {
+    title: "Board Members",
+    description: "Streamlined tools for board governance and decision-making",
+    plans: [
+      {
+        id: 1,
+        name: "Board Essentials",
+        description: "Essential governance tools",
+        buttonText: "Get Started",
+        priceWithUnit: "Contact Us",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Meeting Management",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Document Repository",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Voting & Resolutions",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Compliance Tracking",
+            isAvailable: true,
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: "Board Pro",
+        description: "Advanced governance features",
+        priceWithUnit: "Custom",
+        buttonText: "Contact Sales",
+        header: "Popular",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "All Essential Features",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Advanced Analytics",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Custom Workflows",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Priority Support",
+            isAvailable: true,
+          },
+        ],
+      }
+    ]
+  },
+  "executives": {
+    title: "Executives",
+    description: "Comprehensive management tools for executive leadership",
+    plans: [
+      {
+        id: 1,
+        name: "Executive Suite",
+        description: "Complete executive management",
+        buttonText: "Start Trial",
+        priceWithUnit: "$99",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Strategic Planning",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Performance Dashboards",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Team Collaboration",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Reporting Tools",
+            isAvailable: true,
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: "Enterprise Executive",
+        description: "Enterprise-grade executive tools",
+        priceWithUnit: "$199",
+        buttonText: "Get Started",
+        header: "Recommended",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "All Suite Features",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Advanced Security",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Custom Integrations",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Dedicated Support",
+            isAvailable: true,
+          },
+        ],
+      }
+    ]
+  },
+  "administrators": {
+    title: "Administrators",
+    description: "Efficient tools for administrative operations and support",
+    plans: [
+      {
+        id: 1,
+        name: "Admin Basic",
+        description: "Essential admin functionality",
+        buttonText: "Start Free",
+        priceWithUnit: "Free",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "User Management",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Basic Reporting",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Document Management",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCloseCircle />,
+            text: "Advanced Analytics",
+            isAvailable: false,
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: "Admin Pro",
+        description: "Professional admin tools",
+        priceWithUnit: "$49",
+        buttonText: "Upgrade Now",
+        points: [
+          {
+            id: 1,
+            icon: <IoIosCheckmarkCircle />,
+            text: "All Basic Features",
+            isAvailable: true,
+          },
+          {
+            id: 2,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Advanced Analytics",
+            isAvailable: true,
+          },
+          {
+            id: 3,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Automation Tools",
+            isAvailable: true,
+          },
+          {
+            id: 4,
+            icon: <IoIosCheckmarkCircle />,
+            text: "Priority Support",
+            isAvailable: true,
+          },
+        ],
+      }
+    ]
+  }
 };
+
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
     draggable: false,
+    partialVisibilityGutter: 20,
   },
   tablet: {
     breakpoint: { max: 1023, min: 640 },
@@ -240,17 +250,22 @@ const responsive = {
 
 const Package = () => {
   const [state, setState] = useState({
-    active: "monthly",
-    pricingPlan: packages.monthly,
+    activeRole: "board-members",
+    activePlan: "monthly",
+    currentRole: rolePackages["board-members"],
+    pricingPlan: rolePackages["board-members"].plans,
   });
-  const handlePricingPlan = (e) => {
-    const plan = e.target.name;
+  
+  const handleRoleChange = (roleKey) => {
     setState({
       ...state,
-      active: plan,
-      pricingPlan: packages[plan],
+      activeRole: roleKey,
+      currentRole: rolePackages[roleKey],
+      pricingPlan: rolePackages[roleKey].plans,
     });
   };
+
+  const roleKeys = Object.keys(rolePackages);
 
   const sliderParams = {
     additionalTransfrom: 0,
@@ -276,42 +291,54 @@ const Package = () => {
   };
 
   return (
-    <section id="pricing" sx={{ variant: "section.pricing" }}>
-      <Container>
+    <section id="pricing" sx={{ variant: "section.pricing", py: ["60px", null, null, "80px"] }}>
+      <Container sx={{ maxWidth: "1200px" }}>
         <SectionHeader
-          slogan="Pricing Plan"
-          title="Choose your pricing policy"
+          slogan="Solutions for Every Role"
+          title="Choose your role to see tailored plans"
         />
-        <Flex sx={styles.buttonGroup}>
-          <Box sx={styles.buttonGroupInner}>
-            <button
-              className={state.active === "monthly" ? "active" : ""}
-              type="button"
-              name="monthly"
-              aria-label="Monthly"
-              onClick={handlePricingPlan}>
-              Monthly Plan
-            </button>
-            <button
-              className={state.active === "annual" ? "active" : ""}
-              name="annual"
-              type="button"
-              aria-label="Annual"
-              onClick={handlePricingPlan}>
-              Annual Plan
-            </button>
-          </Box>
-        </Flex>
-        <Box sx={styles.pricingWrapper} className="pricing__wrapper">
-          <Carousel {...sliderParams}>
-            {state.pricingPlan.map((packageData) => (
+        
+        {/* Role Tabs */}
+        <Box sx={styles.roleTabsContainer}>
+          <Flex sx={styles.roleTabs}>
+            {roleKeys.map((roleKey) => (
               <Box
-                sx={styles.pricingItem}
-                key={`${state.active}-card--key${packageData.id}`}>
-                <PriceCard data={packageData} />
+                key={roleKey}
+                sx={styles.roleTab}
+                className={state.activeRole === roleKey ? "active" : ""}
+                onClick={() => handleRoleChange(roleKey)}
+              >
+                <Box sx={styles.roleTabContent}>
+                  <Box sx={styles.roleTabTitle}>
+                    {rolePackages[roleKey].title}
+                  </Box>
+                  <Box sx={styles.roleTabDesc}>
+                    {rolePackages[roleKey].description}
+                  </Box>
+                </Box>
               </Box>
             ))}
-          </Carousel>
+          </Flex>
+        </Box>
+
+        {/* Cards Container */}
+        <Box sx={styles.cardsContainer}>
+          <Box sx={styles.roleHeader}>
+            <Box sx={styles.roleTitle}>{state.currentRole.title}</Box>
+            <Box sx={styles.roleDescription}>{state.currentRole.description}</Box>
+          </Box>
+          
+          <Box sx={styles.pricingWrapper} className="pricing__wrapper">
+            <Carousel {...sliderParams}>
+              {state.pricingPlan.map((packageData) => (
+                <Box
+                  sx={styles.pricingItem}
+                  key={`${state.activeRole}-card--key${packageData.id}`}>
+                  <PriceCard data={packageData} />
+                </Box>
+              ))}
+            </Carousel>
+          </Box>
         </Box>
       </Container>
     </section>
@@ -340,10 +367,84 @@ const fadeIn2 = keyframes`
 `;
 
 const styles = {
+  roleTabsContainer: {
+    mb: "40px",
+    mt: "20px",
+  },
+  roleTabs: {
+    justifyContent: "center",
+    gap: ["16px", null, "24px"],
+    flexWrap: "wrap",
+  },
+  roleTab: {
+    flex: ["1 1 100%", null, "1 1 auto"],
+    minWidth: ["280px", null, "300px"],
+    borderRadius: "12px",
+    border: "2px solid transparent",
+    backgroundColor: "white",
+    boxShadow: "0 4px 16px rgba(38, 78, 118, 0.08)",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    p: ["20px", null, "24px"],
+    "&:hover": {
+      borderColor: "rgba(38, 78, 118, 0.2)",
+      boxShadow: "0 8px 24px rgba(38, 78, 118, 0.12)",
+      transform: "translateY(-2px)",
+    },
+    "&.active": {
+      borderColor: "primary",
+      backgroundColor: "rgba(38, 78, 118, 0.05)",
+      boxShadow: "0 8px 32px rgba(38, 78, 118, 0.15)",
+      transform: "translateY(-4px)",
+    },
+  },
+  roleTabContent: {
+    textAlign: "center",
+  },
+  roleTabTitle: {
+    fontSize: [2, null, 3],
+    fontWeight: "bold",
+    color: "heading",
+    mb: "8px",
+    lineHeight: 1.3,
+  },
+  roleTabDesc: {
+    fontSize: [1, null, 2],
+    color: "text",
+    lineHeight: 1.5,
+    fontWeight: 400,
+  },
+  cardsContainer: {
+    backgroundColor: "rgba(248, 250, 252, 0.8)",
+    borderRadius: "20px",
+    p: ["24px", null, "32px"],
+    border: "1px solid rgba(38, 78, 118, 0.1)",
+    minHeight: "600px",
+    transition: "all 0.4s ease",
+  },
+  roleHeader: {
+    textAlign: "center",
+    mb: "32px",
+    pb: "20px",
+    borderBottom: "1px solid rgba(38, 78, 118, 0.1)",
+  },
+  roleTitle: {
+    fontSize: [3, null, 4],
+    fontWeight: "bold",
+    color: "heading",
+    mb: "12px",
+  },
+  roleDescription: {
+    fontSize: [2, null, 3],
+    color: "text",
+    maxWidth: "600px",
+    mx: "auto",
+    lineHeight: 1.6,
+  },
   pricingWrapper: {
-    mb: "-40px",
-    mt: "-40px",
-    mx: -3,
+    mb: "-16px",
+    mt: "-16px",
+    mx: -2,
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
@@ -363,6 +464,7 @@ const styles = {
     },
     ".carousel-container": {
       width: "100%",
+      padding: "0 8px",
       "> ul > li ": {
         display: "flex",
       },
@@ -372,44 +474,8 @@ const styles = {
       mb: [4, null, null, null, 0],
     },
   },
-  buttonGroup: {
-    justifyContent: "center",
-    mb: "7",
-    mt: ["-15px", "-35px"],
-    position: "relative",
-    zIndex: 2,
-  },
-  buttonGroupInner: {
-    display: "flex",
-    padding: "7px",
-    margin: "0 auto",
-    borderRadius: "5px",
-    backgroundColor: "background_secondary",
-    button: {
-      border: 0,
-      padding: ["15px 20px", "15px 27px"],
-      borderRadius: "5px",
-      color: "text",
-      fontSize: [1, 2],
-      backgroundColor: "transparent",
-      cursor: "pointer",
-      lineHeight: 1.2,
-      fontWeight: 500,
-      fontFamily: "body",
-      letterSpacing: "-0.24px",
-      transition: "all 0.3s",
-      "&.active": {
-        color: "heading",
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
-        boxShadow: "0 3px 4px rgba(37, 99, 235, 0.1)",
-      },
-      "&:focus": {
-        outline: 0,
-      },
-    },
-  },
   pricingItem: {
-    mx: 3,
+    mx: 2,
     display: "flex",
     flexShrink: 0,
     flex: "1 1 auto",

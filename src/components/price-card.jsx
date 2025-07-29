@@ -31,11 +31,22 @@ const PriceCard = ({
           <span>/Monthly</span>
         </Text>
         <Box sx={styles.buttonGroup}>
-          <Button variant="primary" aria-label={buttonText}>
+          <Button 
+            as="a"
+            href="https://portal.boardhubmeetings.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary" 
+            aria-label={buttonText}
+          >
             {buttonText}
           </Button>
           {anotherOption && (
             <Button
+              as="a"
+              href="https://portal.boardhubmeetings.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="textButton"
               className="free__trial"
               aria-label="anotherOption">
@@ -52,13 +63,13 @@ export default PriceCard;
 
 const styles = {
   pricingBox: {
-    borderRadius: 20,
+    borderRadius: 16,
     position: "relative",
     transition: "all 0.3s",
-    p: ["35px 25px", null, null, "40px"],
+    p: ["24px 20px", null, null, "28px"],
     width: ["100%", "75%", "100%"],
-    mb: "40px",
-    mt: "40px",
+    mb: "16px",
+    mt: "16px",
     mx: [0, "auto", 0],
     "&:before": {
       position: "absolute",
@@ -73,7 +84,8 @@ const styles = {
       zIndex: -1,
     },
     "&:hover": {
-      boxShadow: "0px 4px 25px rgba(38, 78, 118, 0.1) !important",
+      boxShadow: "0px 8px 32px rgba(38, 78, 118, 0.15) !important",
+      transform: "translateY(-4px)",
       "&:before": {
         opacity: 0,
       },
@@ -98,7 +110,7 @@ const styles = {
   pricingHeader: {
     justifyContent: "space-between",
     alignItems: "flex-start",
-    mb: ["30px", null, null, null, "40px"],
+    mb: ["20px", null, null, null, "24px"],
     p: {
       fontSize: [1, 2],
       color: "text",
@@ -114,13 +126,13 @@ const styles = {
     fontWeight: "normal",
     fontSize: [1, 2],
     lineHeight: [1.75, 1.6],
-    mb: 3,
+    mb: 2,
     alignItems: "flex-start",
     color: "text",
   },
   buttonGroup: {
     textAlign: "center",
-    mt: ["30px", null, null, null, "35px"],
+    mt: ["20px", null, null, null, "24px"],
     ".free__trial": {
       color: "secondary",
       width: "100%",

@@ -38,10 +38,13 @@ const Subscribe = () => {
                 placeholder="Enter your business email address"
               />
               <Button
-                type="submit"
+                as="a"
+                href="https://portal.boardhubmeetings.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="subscribe__btn"
-                aria-label="Request Demo">
-                Request Demo
+                aria-label="Get Started">
+                Get Started
               </Button>
             </Flex>
           </form>

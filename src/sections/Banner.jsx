@@ -58,11 +58,23 @@ const Banner = () => {
             </Box>
             
             <Box sx={styles.banner.buttonGroup}>
-              <Button sx={styles.banner.primaryButton}>
+              <Button 
+                as="a"
+                href="https://portal.boardhubmeetings.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={styles.banner.primaryButton}
+              >
                 <Text sx={styles.banner.buttonText}>Start Free Trial</Text>
                 <Box sx={styles.banner.buttonArrow}>→</Box>
               </Button>
-              <Button sx={styles.banner.secondaryButton}>
+              <Button 
+                as="a"
+                href="https://portal.boardhubmeetings.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={styles.banner.secondaryButton}
+              >
                 <Text sx={styles.banner.buttonText}>Schedule Demo</Text>
               </Button>
             </Box>
@@ -149,7 +161,7 @@ const styles = {
     background: "linear-gradient(135deg, #ffffff 0%, #fafbff 30%, #f8fafc 100%)",
     display: "flex",
     alignItems: "center",
-    paddingTop: '160px',
+    paddingTop: ['100px', '120px', '140px'], // Adjusted for fixed header
     position: "relative",
     overflow: "hidden",
     
@@ -534,15 +546,17 @@ const styles = {
       gap: 6,
       alignItems: "flex-end",
       position: "absolute",
-      top: "0",
+      top: "80px", // Account for fixed header
       right: "-5vw",
       order: [-1, null, null, 1],
       width: "50vw",
-      height: "100%",
+      height: "calc(100% - 80px)",
       "@media screen and (max-width: 1023px)": {
         position: "relative",
         width: "100%",
         right: "0",
+        top: "0",
+        height: "auto",
         alignItems: "center",
       },
     },

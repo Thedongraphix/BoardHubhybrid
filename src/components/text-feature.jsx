@@ -26,7 +26,7 @@ const TextFeature = ({
       )}
 
       {btnName && (
-        <Link href={btnURL} variant="default">
+        <Link href="https://portal.boardhubmeetings.com/" target="_blank" rel="noopener noreferrer" variant="default">
           <Button variant="primary">{btnName}</Button>
         </Link>
       )}
