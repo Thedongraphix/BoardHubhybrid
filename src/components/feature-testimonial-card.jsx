@@ -27,7 +27,7 @@ const FeatureTestimonialCard = ({
           <Heading sx={styles.title}>{title}</Heading>
           
           <Text sx={styles.quote}>
-            "{quote}"
+            &ldquo;{quote}&rdquo;
           </Text>
           
           <Box sx={styles.attribution}>
