@@ -37,8 +37,6 @@ export default function IndexPage() {
           <BoardCommunication />
           <DecisionMaking />
           <WorkFlow />
-        
-          <TeamSection />
           <TestimonialCard />
           <BlogSection />
           <Subscribe />
