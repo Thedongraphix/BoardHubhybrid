@@ -30,7 +30,6 @@ export default function IndexPage() {
           <FeaturesShowcase />
           <KeyFeature />
           <ServiceSection />
-          <Feature />
           <CoreFeature />
           <MeetingOperations />
           <SecurityCompliance />
@@ -38,6 +37,7 @@ export default function IndexPage() {
           <DecisionMaking />
           <WorkFlow />
           <TestimonialCard />
+          <Feature />
           <BlogSection />
           <Subscribe />
         </Layout>
