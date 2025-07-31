@@ -64,18 +64,12 @@ const styles = {
     position: "fixed",
     top: 0,
     left: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
-    borderBottom: "1px solid rgba(226, 232, 240, 0.3)",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    backgroundColor: "transparent",
+    transition: "all 0.3s ease",
     zIndex: 1000,
     
     "&.scrolled": {
       py: [2, 3],
-      backgroundColor: "rgba(255, 255, 255, 0.98)",
-      boxShadow: "0 4px 32px rgba(0, 0, 0, 0.08)",
-      borderBottom: "1px solid rgba(226, 232, 240, 0.5)",
     },
     
     ".donate__btn": {
@@ -85,18 +79,17 @@ const styles = {
       px: [4, 5],
       py: [2, 3],
       fontSize: ["14px", 2],
-      borderRadius: "12px",
+      borderRadius: "35px",
       fontWeight: 600,
-      border: "2px solid #3b82f6",
-      backgroundColor: "transparent",
-      color: "#3b82f6",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      backgroundColor: "#3b82f6",
+      color: "white",
+      border: "none",
+      transition: "all 0.2s ease",
       
       "&:hover": {
-        backgroundColor: "#3b82f6",
-        color: "white",
-        transform: "translateY(-2px)",
-        boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)",
+        backgroundColor: "#2563eb",
+        transform: "translateY(-1px)",
+        boxShadow: "0 4px 12px rgba(59, 130, 246, 0.3)",
       },
     },
   },
@@ -115,7 +108,7 @@ const styles = {
     "@media screen and (min-width: 1024px)": {
       display: "flex",
       alignItems: "center",
-      gap: [4, 5],
+      gap: [4, 6],
     },
     
     a: {
@@ -125,29 +118,19 @@ const styles = {
       py: 2,
       cursor: "pointer",
       lineHeight: "1.2",
-      borderRadius: "8px",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-      position: "relative",
+      transition: "all 0.3s ease",
+      color: "#64748b",
+      display: "inline-block",
+      transformOrigin: "center",
       
       "&:hover": {
-        color: "#3b82f6",
-        backgroundColor: "rgba(59, 130, 246, 0.1)",
+        color: "#1a202c",
+        transform: "scale(1.1)",
       },
       
       "&.active": {
         color: "#3b82f6",
         fontWeight: 600,
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          bottom: "-2px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "20px",
-          height: "2px",
-          backgroundColor: "#3b82f6",
-          borderRadius: "1px",
-        },
       },
     },
   },
