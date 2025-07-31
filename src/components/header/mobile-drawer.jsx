@@ -121,16 +121,17 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     flexShrink: "0",
-    width: "44px",
-    height: "44px",
-    borderRadius: "12px",
+    width: "40px",
+    height: "40px",
+    borderRadius: "8px",
     backgroundColor: "rgba(59, 130, 246, 0.1)",
     cursor: "pointer",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    transition: "all 0.2s ease",
+    
     "&:hover": {
       backgroundColor: "rgba(59, 130, 246, 0.2)",
-      transform: "scale(1.05)",
     },
+    
     "@media screen and (min-width: 1024px)": {
       display: "none",
     },
@@ -156,7 +157,7 @@ const styles = {
   drawer: {
     width: "100%",
     height: "100%",
-    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 251, 255, 0.98) 30%, rgba(248, 250, 252, 0.98) 100%)",
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
     backdropFilter: "blur(20px)",
     WebkitBackdropFilter: "blur(20px)",
   },
@@ -175,15 +176,15 @@ const styles = {
   closeButton: {
     width: "40px",
     height: "40px",
-    borderRadius: "50%",
-    backgroundColor: "rgba(26, 32, 44, 0.1)",
+    borderRadius: "8px",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    transition: "all 0.2s ease",
+    
     "&:hover": {
-      backgroundColor: "rgba(26, 32, 44, 0.2)",
-      transform: "scale(1.1)",
+      backgroundColor: "rgba(239, 68, 68, 0.1)",
     },
   },
   
@@ -252,18 +253,19 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    py: 5,
+    py: 4,
     px: 4,
-    borderRadius: "16px",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    borderRadius: "8px",
+    transition: "all 0.3s ease",
     cursor: "pointer",
+    
     "&:hover": {
-      backgroundColor: "rgba(59, 130, 246, 0.05)",
-      transform: "translateX(8px)",
+      transform: "scale(1.02)",
     },
+    
     "&.active": {
       backgroundColor: "rgba(59, 130, 246, 0.1)",
-      borderLeft: "4px solid #3b82f6",
+      borderLeft: "3px solid #3b82f6",
     },
   },
   
@@ -297,22 +299,22 @@ const styles = {
   },
   
   mobileButton: {
-    bg: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
+    backgroundColor: "#3b82f6",
     color: "white",
     border: "none",
-    borderRadius: "16px",
+    borderRadius: "35px",
     px: 8,
     py: 4,
     fontSize: "18px",
-    fontWeight: "700",
+    fontWeight: "600",
     cursor: "pointer",
     width: "100%",
     maxWidth: "280px",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-    boxShadow: "0 8px 32px rgba(59, 130, 246, 0.3)",
+    transition: "all 0.2s ease",
+    
     "&:hover": {
-      transform: "translateY(-2px)",
-      boxShadow: "0 12px 40px rgba(59, 130, 246, 0.4)",
+      backgroundColor: "#2563eb",
+      transform: "translateY(-1px)",
     },
   },
   
@@ -333,18 +335,18 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "48px",
-    height: "48px",
-    borderRadius: "50%",
+    width: "44px",
+    height: "44px",
+    borderRadius: "8px",
     backgroundColor: "rgba(59, 130, 246, 0.1)",
     color: "#3b82f6",
-    fontSize: "20px",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    fontSize: "18px",
+    transition: "all 0.2s ease",
     cursor: "pointer",
+    
     "&:hover": {
       backgroundColor: "#3b82f6",
       color: "white",
-      transform: "translateY(-2px) scale(1.1)",
     },
   },
 };
